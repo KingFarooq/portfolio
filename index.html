@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farooq Anwar | Digital Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00f7ff;
+            --secondary: #ff00aa;
+            --dark: #0a0a14;
+            --darker: #05050a;
+            --light: #e0e0e0;
+            --neon-glow: 0 0 10px rgba(0, 247, 255, 0.8),
+                         0 0 20px rgba(0, 247, 255, 0.6),
+                         0 0 30px rgba(0, 247, 255, 0.4);
+            --neon-glow-pink: 0 0 10px rgba(255, 0, 170, 0.8),
+                             0 0 20px rgba(255, 0, 170, 0.6),
+                             0 0 30px rgba(255, 0, 170, 0.4);
+            --font-main: 'Orbitron', sans-serif;
+            --font-secondary: 'Rajdhani', sans-serif;
+        }
+
+        @font-face {
+            font-family: 'Orbitron';
+            src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+        }
+
+        @font-face {
+            font-family: 'Rajdhani';
+            src: url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            font-family: var(--font-secondary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .floating-icons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-icon {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 1.5rem;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+
+        header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: var(--font-main);
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-shadow: var(--neon-glow);
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            box-shadow: var(--neon-glow);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+
+        .logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-family: var(--font-main);
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            box-shadow: var(--neon-glow);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-content {
+            width: 100%;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: var(--font-main);
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-family: var(--font-main);
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+            box-shadow: var(--neon-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px var(--primary),
+                        0 0 30px rgba(0, 247, 255, 0.3);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--dark);
+            box-shadow: var(--neon-glow);
+        }
+
+        .hero-decoration {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 247, 255, 0.1) 0%, rgba(0, 247, 255, 0) 70%);
+            z-index: -1;
+            animation: pulse 8s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.1;
+            }
+        }
+
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: var(--font-main);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            box-shadow: 0 0 10px var(--primary),
+                        0 0 20px var(--secondary);
+            border-radius: 3px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .project-card {
+            background: rgba(10, 10, 20, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.2),
+                        0 0 20px rgba(0, 247, 255, 0.1);
+            border: 1px solid var(--primary);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 247, 255, 0.1) 0%, rgba(255, 0, 170, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-family: var(--font-main);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .project-description {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(0, 247, 255, 0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+            text-shadow: var(--neon-glow-pink);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.2);
+            transition: transform 0.3s ease;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .about-img:hover {
+            transform: scale(1.02);
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            justify-items: center;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            width: 100%;
+            max-width: 150px;
+        }
+
+        .skill-item:hover {
+            background: rgba(0, 247, 255, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(10, 10, 20, 0.7);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: var(--light);
+            font-family: var(--font-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-family: var(--font-main);
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--neon-glow);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px var(--primary),
+                        0 0 30px rgba(0, 247, 255, 0.3);
+        }
+
+        footer {
+            background: var(--darker);
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-link {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+            text-shadow: var(--neon-glow);
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(0, 247, 255, 0.5);
+            pointer-events: none;
+            mix-blend-mode: screen;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 247, 255, 0.5);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9998;
+            transition: transform 0.3s ease;
+        }
+
+        .big-project {
+            background: rgba(10, 10, 20, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .big-project:hover {
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.2);
+        }
+
+        .big-project-title {
+            font-family: var(--font-main);
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .big-project-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .big-project-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .big-project-info {
+            margin-bottom: 2rem;
+        }
+
+        .big-project-info p {
+            margin-bottom: 1rem;
+        }
+
+        .team-members {
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .team-member::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--primary);
+            box-shadow: var(--neon-glow);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 2rem);
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 2rem);
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: rgba(10, 10, 20, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.1);
+        }
+
+        .timeline-date {
+            font-family: var(--font-main);
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: var(--neon-glow);
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: calc(50% - 11px);
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: calc(50% - 11px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .big-project-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                padding-left: 70px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+            
+            .timeline-item::before {
+                left: 20px !important;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Background elements -->
+    <div class="grid-lines"></div>
+
+    <!-- Floating icons -->
+    <div class="floating-icons">
+        <i class="floating-icon fas fa-code" style="top: 10%; left: 20%; animation-delay: 0s;"></i>
+        <i class="floating-icon fas fa-laptop-code" style="top: 30%; left: 80%; animation-delay: 2s;"></i>
+        <i class="floating-icon fas fa-microchip" style="top: 70%; left: 10%; animation-delay: 4s;"></i>
+        <i class="floating-icon fas fa-server" style="top: 50%; left: 90%; animation-delay: 6s;"></i>
+        <i class="floating-icon fas fa-terminal" style="top: 80%; left: 70%; animation-delay: 8s;"></i>
+        <i class="floating-icon fas fa-database" style="top: 20%; left: 50%; animation-delay: 10s;"></i>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">FAROOQ ANWAR</div>
+            <nav>
+                <ul>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#big-projects">Big Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#timeline">Timeline</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content fade-in">
+                    <h1 class="delay-1">Hi, I'm <span style="color: var(--primary);">Farooq Anwar</span></h1>
+                    <p class="delay-2">Information Technology Major | Engineering Minor</p>
+                    <div class="hero-btns delay-3">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                    </div>
+                </div>
+                <div class="hero-decoration delay-4"></div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title fade-in">My Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card fade-in delay-1">
+                        <div class="project-content">
+                            <img src="evanOddCalc.png" class="about-img">
+                            <br>
+                            <h3 class="project-title">Even or Odd Calculator</h3>
+                            <p class="project-description">A Python program that determines if a number is even or odd using the modulo operator.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">AP CSP</span>
+                            </div>
+                            <a href="https://github.com/KingFarooq/Even-Odd-Calc" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card fade-in delay-2">
+                        <div class="project-content">
+                            <img src="madLibs.png" class="about-img">
+                            <br>
+                            <h3 class="project-title">Mad Libs</h3>
+                            <p class="project-description">An interactive Python game that creates funny stories based on user input.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">AP CSP</span>
+                            </div>
+                            <a href="https://github.com/KingFarooq/MadLibs" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card fade-in delay-3">
+                        <div class="project-content">
+                            <img src="caffine.png" class="about-img">
+                            <br>
+                            <h3 class="project-title">Drink Specs Filter</h3>
+                            <p class="project-description">A Python tool that filters drinks based on caffeine content, with data from Excel.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">AP CSP</span>
+                                <span class="tech-tag">Excel</span>
+                            </div>
+                            <a href="https://github.com/KingFarooq/Caffeine-in-Drinks" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card fade-in delay-4">
+                        <div class="project-content">
+                            <img src="dinner table.png" class="about-img">
+                            <br>
+                            <h3 class="project-title">Dinner Table Assembly</h3>
+                            <p class="project-description">CAD design and engineering of a dinner table using SolidWorks.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">CAD</span>
+                                <span class="tech-tag">SolidWorks</span>
+                                <span class="tech-tag">Engineering</span>
+                            </div>
+                            <a href="https://github.com/KingFarooq/Dinner-Table" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card fade-in delay-1">
+                        <div class="project-content">
+                            <img src="workbench.png" class="about-img">
+                            <br>
+                            <h3 class="project-title">Table / Workbench</h3>
+                            <p class="project-description">Woodworking project combining craftsmanship with engineering principles.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Woodworking</span>
+                                <span class="tech-tag">Engineering</span>
+                            </div>
+                            <a href="https://github.com/KingFarooq/Workbench" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card fade-in delay-2">
+                        <div class="project-content">
+                            <img src="birdhouse.png" class="about-img">
+                            <br>
+                            <h3 class="project-title">Northern Cardinal Bird House</h3>
+                            <p class="project-description">Specially designed bird house for Northern Cardinals using CAD and SolidWorks.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">CAD</span>
+                                <span class="tech-tag">SolidWorks</span>
+                                <span class="tech-tag">Engineering</span>
+                            </div>
+                            <a href="https://github.com/KingFarooq/Birdhouse" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 7 -->
+                    <div class="project-card fade-in delay-3">
+                        <div class="project-content">
+                            <img src="greenhouse.png" class="about-img">
+                            <br>
+                            <h3 class="project-title">Mobile Greenhouse</h3>
+                            <p class="project-description">Portable greenhouse design combining woodworking, CAD, and team leadership.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Woodworking</span>
+                                <span class="tech-tag">CAD</span>
+                                <span class="tech-tag">SolidWorks</span>
+                                <span class="tech-tag">Teamwork</span>
+                            </div>
+                            <a href="https://github.com/KingFarooq/Mobile-Greenhouse" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 8 -->
+                    <div class="project-card fade-in delay-4">
+                        <div class="project-content">
+                            <img src="englishToMorse.png" class="about-img">
+                            <br>
+                            <h3 class="project-title">English to Morse Code</h3>
+                            <p class="project-description">A python program that converts enlglish text into morse code.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">APSCP</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Dictonary</span>
+                            </div>
+                            <a href="https://github.com/KingFarooq/English-to-Morse" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="big-projects" style="background: rgba(5, 5, 10, 0.7);">
+            <div class="container">
+                <h2 class="section-title fade-in">Big Projects</h2>
+                
+                <!-- Showcase 24 -->
+                <div class="big-project fade-in delay-1">
+                    <h3 class="big-project-title">Showcase '24 - EMG Prosthetic Hand</h3>
+                    <div class="big-project-content">
+                        <div class="big-project-info">
+                            <p>This project was inspired by amputees. People should not be limited to the functionality of their limbs. As a result, we decided to make an EMG powered prosthetic hand. Utilizing a MyoWare sensor, we can use this to power the servos thus retracting or clenching the hand.</p>
+                            <p><strong>How are we able to improve current systems of modern technology using engineering to facilitate a change in healthcare?</strong></p>
+                            <p>We can create a robotic arm that follows your dominant hand for handling dangerous substances in labs as well for amputees.</p>
+                            
+                            <div class="team-members">
+                                <h4>Group Members</h4>
+                                <div class="team-member">Farooq Anwar - Leader</div>
+                                <div class="team-member">Dylan Kong</div>
+                                <div class="team-member">Patrick Matyniak</div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="arm.png" alt="EMG Prosthetic Hand" class="about-img">
+                        </div>
+                         <a href="https://github.com/KingFarooq/EMG-Prosthetic-Arm" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                    </div>
+                </div>
+                
+                <!-- Showcase 25 -->
+                <div class="big-project fade-in delay-2">
+                    <h3 class="big-project-title">Showcase '25 - AI Traffic Optimization</h3>
+                    <div class="big-project-content">
+                        <div class="big-project-info">
+                            <p><strong>How can AI optimize the traffic flow and safety at the entrances of Innovation Academy during peak hours?</strong></p>
+                            <p>The overall purpose of the research is to solve any issues related to traffic flow and safety at Innovation Academy's entrances during peak hours with the help of an AI model. The specifics of the research are to aim for a design that uses a machine learning algorithm to analyze pre-existing and newly collected data on traffic to predict and manage congestion.</p>
+                            <p>It is hypothesized that an AI-driven system will be effective in reducing congestion and enhancing pedestrian safety. The research will then take a quantitative approach by observing data and using machine learning techniques to train the model. This might be of importance, as it would hopefully produce a scalable and efficient solution to a problem faced by most schools, applying AI in everyday life. If successful, this could provide proof of concept that could be used by other institutions as a template to improve technologies involving challenges in similar areas.</p>
+                            <p>Artificial intelligence (AI) provides innovative solutions to optimize traffic flow and enhance safety at Innovation Academy's entrances. By using machine learning models, the system would be able to make real-time predictions about traffic and adjust traffic signals to reduce congestion and improve pedestrian safety. The goal is to implement a smarter, more efficient system that can dynamically adjust to varying traffic patterns during peak hours.</p>
+                        </div>
+                        <div>
+                            <img src="traffic.png" alt="AI Traffic Optimization" class="about-img">
+                            <br>
+                            <img src="trafficChart.png" alt="AI Traffic Optimization" class="about-img">
+                        </div>
+                         <a href="https://github.com/KingFarooq/TrafficCongestionWithAI" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title fade-in">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I’m a senior at Innovation Academy, and I’m passionate about computer science, computer engineering, Artificial Intelligence, and business. Being involved in soccer, boxing, and clubs like the Muslim Student Association (MSA) has helped me build teamwork and problem-solving skills. I enjoy giving back to my community through volunteering, whether it’s helping at my mosque during Ramadan or making sandwiches for the homeless. These experiences have shown me how important it is to support others. I’ve worked on advanced projects like building a robotic arm and creating a smart greenhouse, which has motivated me to pursue a career as an AI computer engineer while exploring the business side of innovation. In my free time, I love gaming and spending time with my family.</p>
+                    </div>
+                    <div class="about-img-container">
+                        <img src="https://via.placeholder.com/300x300/0a0a14/ff00aa?text=Farooq+Anwar" alt="Farooq Anwar" class="about-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline">
+            <div class="container">
+                <h2 class="section-title fade-in">Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-item fade-in delay-1">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-content">
+                            <h3>Innovation Academy</h3>
+                            <p>Enrolled in IA.</p>
+                            <br>
+                            <h3>Soccer</h3>
+                            <p>Became a second consecutive champion winner. Won Leadership & MVP award.</p>
+                            <br>
+                            <h3>Top 10 in Fulton County Schools Technology Logo Commpetition</h3>
+                            <p>Created a logo design for the FCSTLC and won top 10 in all of Fulton County.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in delay-2">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            <h3>Engineering Concepts</h3>
+                            <p>Introduced to Arduinos and Machines. Created many CAD projects. Worked on the Arm project.</p>
+                            <br>
+                            <h3>Advanced Placement Computer Science Principles</h3>
+                            <p>Learned the trending coding language, Python. Created many Python projects.</p>
+                            <br>
+                            <h3>Referee</h3>
+                            <p>Became a soccer referee for a year.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in delay-3">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <h3>Focused on AI Research</h3>
+                            <p>Deepened my expertise in AI through hands-on projects and research to explore its potential in real-world applications. Recived a certificate of Excellence in Project Based Learning and a certificate in Excellence in Prototyping and Building. Was invited to talk about my project at a business fundraiser.</p>
+                            <br>
+                            <h3>Engineering Applications</h3>
+                            <p>Crated many wood and metal projects. Learned to use different machines.</p>
+                            <br>
+                            <h3>Embedded Computing / Coding</h3>
+                            <p>Created many projects with Arduinos, including a boxing trainer.</p>
+                            <br>
+                            <h3>Arm Project</h3>
+                            <p>The arm found its way to a Geogia Tech lab where one of our group members had an internship.</p>
+                            <br>
+                            <h3>KC Medical Care</h3>
+                            <p>Became an intern at KC Medical Care. Helped with troubleshooting, research, and marketing.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in delay-3">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h3>VDART</h3>
+                            <p>Offered a position as a Strategy Enablement Analyst at VDART (a global technology and staffing solutions company).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/KingFarooq" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/farooq-anwar-81897b349/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:fmanwar3710@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        // Custom cursor functionality
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        let mouseX = 0, mouseY = 0;
+
+        // Ensuring that the cursor and its follower are positioned correctly
+        cursor.style.position = 'absolute';
+        cursor.style.pointerEvents = 'none';
+        cursorFollower.style.position = 'absolute';
+        cursorFollower.style.pointerEvents = 'none';
+
+        // Update cursor position on mouse move
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.pageX;
+            mouseY = e.pageY;
+            
+            // Smoothly move the cursor
+            cursor.style.transform = `translate3d(${mouseX - 10}px, ${mouseY - 10}px, 0)`;
+            cursorFollower.style.transform = `translate3d(${mouseX - 25}px, ${mouseY - 25}px, 0)`;
+        });
+
+
+        // Floating icons animation
+        const floatingIcons = document.querySelectorAll('.floating-icon');
+        floatingIcons.forEach(icon => {
+            const delay = icon.style.animationDelay;
+            icon.style.animation = `float 10s infinite ease-in-out ${delay}`;
+        });
+    </script>
+</body>
+</html>
