@@ -321,7 +321,7 @@
     }
 
     /* NEW: Portfolio Showcase Section */
-    #portfolio-showcase {
+    #others {
       background: rgba(5,5,10,0.4);
       padding: 5rem 0;
     }
@@ -679,9 +679,9 @@
         <ul>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#big-projects">Big Projects</a></li>
-          <li><a href="#portfolio-showcase">Portfolio Showcase</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#others">Others</a></li>
         </ul>
       </nav>
     </header>
@@ -911,14 +911,90 @@
             <i class="fab fa-github"></i> View on GitHub
           </a>
         </div>
+    </section>
 
+    <!-- Updated About with slideshow -->
+    <section id="about">
+      <div class="about-container">
+        <!-- Text -->
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>
+            I'm a senior at Innovation Academy passionate about computer science, engineering, and AI.
+            I enjoy designing hardware, writing code, and turning ideas into real projects — from robotic arms to smart greenhouse systems.
+            Outside of tech I play soccer, box, and volunteer in my community. I like building useful things that help people and make learning fun.
+          </p>
+        </div>
+
+        <!-- Slideshow -->
+        <div class="about-slideshow" aria-live="polite" aria-label="About me slideshow">
+          <!-- Slides will be added dynamically via JavaScript -->
+          <div class="slide-dots" aria-hidden="false">
+            <!-- Dots will be added dynamically via JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div class="container">
+        <h2 class="section-title">Timeline</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">2022</div>
+              <h3>Innovation Academy</h3>
+              <p>Enrolled in IA.</p>
+              <h3>Soccer</h3>
+              <p>Became a second consecutive champion winner. Won Leadership & MVP award.</p>
+              <h3>Top 10 in FCSTLC</h3>
+              <p>Created a logo design for the Fulton County Schools Technology Logo Competition and placed top 10.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">2023</div>
+              <h3>Engineering Concepts</h3>
+              <p>Introduced to Arduinos and machines. Created CAD projects and worked on the Arm project.</p>
+              <h3>AP Computer Science Principles</h3>
+              <p>Learned Python and developed multiple projects.</p>
+              <h3>Referee</h3>
+              <p>Became a soccer referee for a year.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">2024</div>
+              <h3>AI Research</h3>
+              <p>Focused on AI research and hands-on projects. Received awards in project-based learning and prototyping, and presented at a fundraiser event.</p>
+              <h3>Engineering Applications</h3>
+              <p>Built wood & metal projects and learned new shop machines.</p>
+              <h3>Embedded Computing</h3>
+              <p>Created Arduino projects including a boxing trainer.</p>
+              <h3>Arm Project</h3>
+              <p>The arm went to a Georgia Tech lab through a group member's internship.</p>
+              <h3>KC Medical Care</h3>
+              <p>Interned at KC Medical Care assisting with troubleshooting, research, and marketing.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">2025</div>
+              <h3>VDART</h3>
+              <p>Offered a position as a Strategy Enablement Analyst at VDART.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- NEW: Portfolio Showcase Section -->
-    <section id="portfolio-showcase">
+    <section id="others">
       <div class="container">
-        <h2 class="section-title">Portfolio Showcase</h2>
+        <h2 class="section-title">Others</h2>
         
         <div class="portfolio-tabs">
           <button class="tab-btn active" data-tab="portfolios">Portfolios</button>
@@ -1076,84 +1152,6 @@
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Updated About with slideshow -->
-    <section id="about">
-      <div class="about-container">
-        <!-- Text -->
-        <div class="about-text">
-          <h2>About Me</h2>
-          <p>
-            I'm a senior at Innovation Academy passionate about computer science, engineering, and AI.
-            I enjoy designing hardware, writing code, and turning ideas into real projects — from robotic arms to smart greenhouse systems.
-            Outside of tech I play soccer, box, and volunteer in my community. I like building useful things that help people and make learning fun.
-          </p>
-        </div>
-
-        <!-- Slideshow -->
-        <div class="about-slideshow" aria-live="polite" aria-label="About me slideshow">
-          <!-- Slides will be added dynamically via JavaScript -->
-          <div class="slide-dots" aria-hidden="false">
-            <!-- Dots will be added dynamically via JavaScript -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="timeline">
-      <div class="container">
-        <h2 class="section-title">Timeline</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-date">2022</div>
-              <h3>Innovation Academy</h3>
-              <p>Enrolled in IA.</p>
-              <h3>Soccer</h3>
-              <p>Became a second consecutive champion winner. Won Leadership & MVP award.</p>
-              <h3>Top 10 in FCSTLC</h3>
-              <p>Created a logo design for the Fulton County Schools Technology Logo Competition and placed top 10.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-date">2023</div>
-              <h3>Engineering Concepts</h3>
-              <p>Introduced to Arduinos and machines. Created CAD projects and worked on the Arm project.</p>
-              <h3>AP Computer Science Principles</h3>
-              <p>Learned Python and developed multiple projects.</p>
-              <h3>Referee</h3>
-              <p>Became a soccer referee for a year.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-date">2024</div>
-              <h3>AI Research</h3>
-              <p>Focused on AI research and hands-on projects. Received awards in project-based learning and prototyping, and presented at a fundraiser event.</p>
-              <h3>Engineering Applications</h3>
-              <p>Built wood & metal projects and learned new shop machines.</p>
-              <h3>Embedded Computing</h3>
-              <p>Created Arduino projects including a boxing trainer.</p>
-              <h3>Arm Project</h3>
-              <p>The arm went to a Georgia Tech lab through a group member's internship.</p>
-              <h3>KC Medical Care</h3>
-              <p>Interned at KC Medical Care assisting with troubleshooting, research, and marketing.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-date">2025</div>
-              <h3>VDART</h3>
-              <p>Offered a position as a Strategy Enablement Analyst at VDART.</p>
             </div>
           </div>
         </div>
