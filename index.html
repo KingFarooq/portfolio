@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Farooq Anwar | Digital Portfolio</title>
+  <title>Farooq Anwar | Digital Portfolio + Blog</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@
       padding:0 20px;
     }
 
-    /* Background grid + floating icons (subtle) */
+    /* Background grid + floating icons */
     .grid-lines{
       position:fixed;inset:0;
       background-image:
@@ -70,12 +70,12 @@
     }
 
     /* Header */
-    header{ padding:2rem 0; display:flex; justify-content:space-between; align-items:center; position:relative; z-index:10; }
+    header{ padding:2rem 0; display:flex; justify-content:space-between; align-items:center; position:relative; z-index:10; flex-wrap:wrap; gap:1rem;}
     .logo{ font-family:var(--font-main); font-weight:700; color:var(--primary); letter-spacing:2px; font-size:1.8rem; text-shadow:var(--neon-glow); position:relative; }
     .logo::after{ content:""; position:absolute; bottom:-6px; left:0; right:0; height:2px; background:var(--primary); box-shadow:var(--neon-glow); transform:scaleX(0); transform-origin:right; transition:transform .45s ease; }
     .logo:hover::after{ transform:scaleX(1); transform-origin:left; }
 
-    nav ul{ display:flex; gap:1.8rem; list-style:none; }
+    nav ul{ display:flex; gap:1.8rem; list-style:none; flex-wrap:wrap; }
     nav a{ color:var(--light); text-decoration:none; font-family:var(--font-main); font-weight:500; letter-spacing:1px; font-size:1.02rem; position:relative; padding:3px 0; }
     nav a::after{ content:""; position:absolute; left:0; bottom:-4px; height:2px; width:0; background:var(--primary); box-shadow:var(--neon-glow); transition:width .25s ease; }
     nav a:hover{ color:var(--primary); }
@@ -85,7 +85,6 @@
     .hero{ min-height:80vh; display:flex; align-items:center; text-align:center; position:relative; overflow:hidden; padding-top:30px; }
     .hero-content{ width:100%; z-index:2; }
     
-    /* Glitch name effect */
     .glitch-container {
       position: relative;
       display: inline-block;
@@ -167,7 +166,6 @@
     
     .hero p{ font-size:1.1rem; margin-bottom:2.5rem; opacity:0.95; }
     
-    /* Scroll down animation - positioned under the name */
     .scroll-down {
       display: flex;
       flex-direction: column;
@@ -193,15 +191,9 @@
     }
     
     @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-      }
-      40% {
-        transform: translateY(-10px);
-      }
-      60% {
-        transform: translateY(-5px);
-      }
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
     }
 
     .hero-decoration{
@@ -253,7 +245,6 @@
     .project-tech{ display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem; }
     .tech-tag{ padding:.32rem .7rem; border-radius:20px; background: rgba(0,247,255,0.06); color:var(--primary); border:1px solid rgba(0,247,255,0.08); font-size:.82rem; }
     
-    /* GitHub project links */
     .project-link {
       display: inline-flex;
       align-items: center;
@@ -306,7 +297,6 @@
       transform: scale(1.03);
     }
     
-    /* AI Project specific fixes */
     .ai-project-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -320,7 +310,7 @@
       gap: 0.8rem;
     }
 
-    /* NEW: Portfolio Showcase Section */
+    /* Portfolio Showcase Section */
     #others {
       background: rgba(5,5,10,0.4);
       padding: 5rem 0;
@@ -465,7 +455,7 @@
       background: rgba(10,10,20,0.8);
     }
 
-    /* About section (new polished layout + slideshow) */
+    /* About section */
     #about { padding:5rem 0; }
     .about-container{ display:grid; grid-template-columns: 1fr 420px; gap:2.4rem; align-items:center; max-width:1100px; margin:0 auto; }
     .about-text{ text-align:left; }
@@ -507,79 +497,284 @@
       opacity:1; 
       transform:scale(1); 
     }
-    .slide-caption{ 
-      position:absolute; 
-      left:12px; 
-      bottom:12px; 
-      font-size:.95rem; 
-      padding:.5rem .75rem; 
-      background: linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15)); 
-      border-radius:10px; 
-      backdrop-filter: blur(4px); 
-      color:var(--light); 
-      font-weight:600; 
-      font-family:var(--font-secondary); 
-    }
-
-    /* Dots */
     .slide-dots{ position:absolute; left:50%; transform:translateX(-50%); bottom:10px; display:flex; gap:.5rem; z-index:30; }
     .slide-dot{ width:10px; height:10px; border-radius:50%; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.04); cursor:pointer; transition: all .22s ease; box-shadow: 0 0 6px rgba(0,0,0,0.35) inset; }
     .slide-dot.active{ background:var(--primary); box-shadow: var(--neon-glow); transform:scale(1.15); border-color:var(--primary); }
 
-    /* About image container fallback (for older small screens) */
-    .about-img-container{ display:none; }
-
-    /* Contact & form (kept minimal) */
-    .contact-form{ max-width:650px; margin:0 auto; background: rgba(10,10,20,0.7); padding:2rem; border-radius:12px; border:1px solid rgba(255,255,255,0.06); backdrop-filter: blur(6px); }
-
-    /* Timeline */
-    .timeline{ position:relative; max-width:800px; margin:0 auto; padding:2rem 0; }
-    .timeline::before{ content:""; position:absolute; left:50%; transform:translateX(-50%); width:2px; background:var(--primary); height:100%; box-shadow:var(--neon-glow); }
-    .timeline-item{ margin-bottom:2.6rem; position:relative; width:100%; transition: transform 0.3s ease; }
-    .timeline-item:hover { transform: translateX(5px); }
-    .timeline-item:nth-child(odd){ padding-right:calc(50% + 2rem); text-align:right; }
-    .timeline-item:nth-child(even){ padding-left:calc(50% + 2rem); text-align:left; }
-    .timeline-content{ 
-      background:rgba(10,10,20,0.65); 
-      padding:1.2rem; 
-      border-radius:8px; 
-      border:1px solid rgba(255,255,255,0.04);
-      transition: all 0.3s ease;
-      cursor: pointer;
+    /* ===== HORIZONTAL TIMELINE STYLES ===== */
+    .timeline-wrapper {
+      position: relative;
+      width: 100%;
+      padding: 2rem 0 3rem;
+      overflow-x: auto;
+      overflow-y: visible;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) rgba(255,255,255,0.1);
+      cursor: grab;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
     }
-    .timeline-content:hover {
-      background: rgba(10,10,20,0.8);
-      box-shadow: 0 0 15px rgba(0,247,255,0.2);
-      border:1px solid rgba(0,247,255,0.2);
+
+    .timeline-wrapper:active { cursor: grabbing; }
+
+    .timeline-wrapper::-webkit-scrollbar { height: 8px; }
+    .timeline-wrapper::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
+    .timeline-wrapper::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; box-shadow: var(--neon-glow); }
+
+    .timeline-horizontal {
+      display: flex;
+      gap: 2rem;
+      padding: 1rem 0.5rem;
+      min-width: min-content;
+      justify-content: flex-start;
     }
-    .timeline-item::before{ 
-      content:""; 
-      position:absolute; 
-      top:0; 
-      width:18px; 
-      height:18px; 
-      border-radius:50%; 
-      background:var(--primary); 
-      box-shadow:var(--neon-glow);
+
+    .timeline-item {
+      flex: 0 0 340px;
+      position: relative;
+      margin-bottom: 0;
+      padding: 0;
       transition: transform 0.3s ease;
-      z-index: 2;
     }
-    .timeline-item:hover::before {
-      transform: scale(1.2);
-    }
-    .timeline-item:nth-child(odd)::before{ right:calc(50% - 9px); }
-    .timeline-item:nth-child(even)::before{ left:calc(50% - 9px); }
-    
+
+    .timeline-item:hover { transform: translateY(-5px); }
+
     .timeline-date {
+      display: block;
+      text-align: center;
       font-family: var(--font-main);
       color: var(--primary);
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      display: inline-block;
-      padding: 0.3rem 0.8rem;
-      background: rgba(0,247,255,0.1);
-      border-radius: 15px;
+      font-size: 1.8rem;
+      font-weight: 900;
+      margin: 0 auto 1rem;
+      padding: 0.5rem 1.5rem;
+      background: var(--darker);
+      border: 2px solid var(--primary);
+      border-radius: 50px;
+      box-shadow: var(--neon-glow);
+      width: fit-content;
+      letter-spacing: 3px;
+      text-shadow: 0 0 15px var(--primary);
     }
+
+    .timeline-content {
+      background: rgba(10,10,20,0.95);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s ease;
+      height: auto;
+      min-height: 320px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+
+    .timeline-content:hover {
+      background: rgba(25,25,40,0.98);
+      border-color: var(--primary);
+      box-shadow: 0 0 40px rgba(0,247,255,0.4);
+      transform: scale(1.02);
+    }
+
+    .timeline-entry {
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding-bottom: 0.8rem;
+    }
+    .timeline-entry:last-child { border-bottom: none; }
+
+    .timeline-content h3 {
+      font-family: var(--font-main);
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-content h3 a {
+      color: var(--primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+    
+    .timeline-content h3 a:hover {
+      text-shadow: var(--neon-glow);
+      transform: translateX(3px);
+    }
+
+    .timeline-content p { 
+      font-size: 0.9rem; 
+      opacity: 0.8; 
+      margin-left: 0.5rem;
+    }
+
+    .scroll-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      font-family: var(--font-main);
+      font-size: 1rem;
+      opacity: 0.8;
+      animation: pulseOpacity 2s infinite;
+    }
+    .scroll-hint i { font-size: 1.2rem; }
+    @keyframes pulseOpacity { 0%,100%{opacity:0.6;} 50%{opacity:1;} }
+
+    /* ===== BLOG SECTION ===== */
+    #blog {
+      background: rgba(5,5,10,0.3);
+      padding: 4.5rem 0;
+    }
+    .blog-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .blog-card {
+      display: flex;
+      flex-direction: row;
+      background: rgba(10,10,20,0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+      box-shadow: 0 15px 30px rgba(0,247,255,0.2);
+    }
+    .blog-img-col {
+      flex: 0 0 260px;
+      max-width: 260px;
+      overflow: hidden;
+      background: var(--darker);
+    }
+    .blog-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+    .blog-card:hover .blog-img { transform: scale(1.03); }
+    .blog-content-col {
+      flex: 1;
+      padding: 1.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .blog-meta {
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+      font-family: var(--font-main);
+      color: var(--primary);
+      opacity: 0.85;
+    }
+    .blog-meta i { margin-right: 4px; color: var(--secondary); }
+    .blog-title {
+      font-family: var(--font-main);
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      background: linear-gradient(135deg, #fff, var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .blog-excerpt { font-size: 1rem; opacity: 0.9; margin-bottom: 1rem; }
+    .blog-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .blog-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .blog-tag {
+      background: rgba(0,247,255,0.1);
+      border: 1px solid rgba(0,247,255,0.2);
+      border-radius: 30px;
+      padding: 0.25rem 1rem;
+      font-size: 0.8rem;
+      color: var(--primary);
+    }
+    .blog-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-family: var(--font-main);
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      border-bottom: 1px solid transparent;
+      cursor: pointer;
+    }
+    .blog-link:hover { gap: 0.8rem; border-bottom-color: var(--primary); }
+    @media (max-width: 700px) {
+      .blog-card { flex-direction: column; }
+      .blog-img-col { flex: 0 0 auto; max-width: 100%; height: 200px; width: 100%; }
+      .blog-content-col { padding: 1.5rem; }
+      .blog-title { font-size: 1.5rem; }
+    }
+
+    /* Modal for blog stories */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s;
+      padding: 20px;
+    }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
+    .modal-content {
+      background: rgba(10,10,20,0.95);
+      border: 2px solid var(--primary);
+      border-radius: var(--radius);
+      max-width: 700px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 2rem;
+      box-shadow: var(--neon-glow);
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+    .modal-overlay.active .modal-content { transform: scale(1); }
+    .modal-close {
+      position: absolute;
+      top: 15px; right: 20px;
+      background: none;
+      border: none;
+      color: var(--primary);
+      font-size: 2.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .modal-close:hover { color: var(--secondary); transform: scale(1.1); }
+    .modal-title { font-family: var(--font-main); font-size: 2rem; margin-bottom: 1rem; }
+    .modal-meta { margin-bottom: 1.5rem; color: var(--primary); opacity: 0.8; }
+    .modal-body { font-size: 1.1rem; line-height: 1.7; }
 
     /* Footer */
     footer{ background:var(--darker); padding:2.8rem 0; text-align:center; margin-top:20px; }
@@ -609,7 +804,7 @@
     .cursor{ width:16px; height:16px; border-radius:50%; background: rgba(0,247,255,0.85); box-shadow:0 0 12px rgba(0,247,255,0.9); }
     .cursor-follower{ width:36px; height:36px; border-radius:50%; border:1px solid rgba(0,247,255,0.35); }
 
-    /* Scroll-to-top button (neon style) */
+    /* Scroll-to-top button */
     #scrollToTopBtn{
       position:fixed; right:28px; bottom:28px; width:52px; height:52px; display:grid; place-items:center; border-radius:50%;
       border:2px solid var(--primary);
@@ -619,52 +814,34 @@
     }
     #scrollToTopBtn i{ font-size:1.05rem; }
     #scrollToTopBtn.show{ opacity:1; visibility:visible; transform: translateY(0); }
-    #scrollToTopBtn:hover{ box-shadow: 0 0 14px rgba(0,247,255,0.9), 0 0 26px rgba(0,247,255,0.45), 0 0 36px rgba(255,0,170,0.12); transform: translateY(-3px); }
-    #scrollToTopBtn:active{ transform: translateY(-1px) scale(.98); }
-    #scrollToTopBtn:focus-visible{ outline:2px solid var(--secondary); outline-offset:3px; }
+    #scrollToTopBtn:hover{ box-shadow: 0 0 14px rgba(0,247,255,0.9), 0 0 26px rgba(0,247,255,0.45); transform: translateY(-3px); }
 
-    /* small / responsive */
+    /* responsive */
     @media (max-width: 992px){
       .about-container{ grid-template-columns: 1fr; gap:1.6rem; }
       .about-text{ text-align:center; }
       .about-slideshow{ margin:0 auto; width:320px; height:320px; }
       .hero h1{ font-size:2.6rem; }
-      nav ul{ gap:1rem; flex-wrap:wrap; justify-content:center; }
+      nav ul{ gap:1rem; justify-content:center; }
       .projects-grid{ grid-template-columns: 1fr; }
-      .timeline::before{ left:31px; }
-      .timeline-item{ padding-left:70px !important; padding-right:0 !important; text-align:left !important; }
-      .timeline-item::before{ left:20px !important; }
-      .ai-project-grid {
-        grid-template-columns: 1fr;
-      }
-      .portfolio-grid {
-        grid-template-columns: 1fr;
-      }
-      .portfolio-tabs {
-        flex-direction: column;
-        align-items: center;
-      }
-      .tab-btn {
-        width: 80%;
-        text-align: center;
-      }
+      .ai-project-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-tabs { flex-direction: column; align-items: center; }
+      .tab-btn { width: 80%; text-align: center; }
     }
   </style>
 </head>
 <body>
   <!-- Scroll to top -->
-  <button id="scrollToTopBtn" aria-label="Scroll to top" title="Back to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
+  <button id="scrollToTopBtn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
 
-  <!-- Custom cursor elements -->
-  <div class="cursor" aria-hidden="true"></div>
-  <div class="cursor-follower" aria-hidden="true"></div>
+  <!-- Custom cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
 
-  <div class="grid-lines" aria-hidden="true"></div>
-
-  <div class="floating-icons" aria-hidden="true">
-    <i class="floating-icon fas fa-code" style="top:10%; left:20%; animation-delay:0s;"></i>
+  <div class="grid-lines"></div>
+  <div class="floating-icons">
+    <i class="floating-icon fas fa-code" style="top:10%; left:20%;"></i>
     <i class="floating-icon fas fa-laptop-code" style="top:30%; left:80%; animation-delay:2s;"></i>
     <i class="floating-icon fas fa-microchip" style="top:70%; left:10%; animation-delay:4s;"></i>
     <i class="floating-icon fas fa-server" style="top:50%; left:90%; animation-delay:6s;"></i>
@@ -682,537 +859,289 @@
           <li><a href="#about">About</a></li>
           <li><a href="#timeline">Timeline</a></li>
           <li><a href="#others">Others</a></li>
+          <li><a href="#blog">Blog</a></li>
         </ul>
       </nav>
     </header>
   </div>
 
   <main>
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-content">
         <div class="glitch-container">
           <h1 data-text="Hi, I'm Farooq Anwar">Hi, I'm Farooq Anwar</h1>
         </div>
-        <p class="fade-in delay-1">Information Technology Major | Engineering Minor</p>
-        
-        <!-- Scroll down positioned right under the name -->
-        <a href="#projects" class="scroll-down fade-in delay-2">
-          <i class="fas fa-chevron-down"></i>
-          <span>Scroll Down</span>
+        <p>Information Technology Major | Engineering Minor</p>
+        <a href="#projects" class="scroll-down">
+          <i class="fas fa-chevron-down"></i><span>Scroll Down</span>
         </a>
-        
-        <div class="hero-decoration" aria-hidden="true"></div>
+        <div class="hero-decoration"></div>
       </div>
     </section>
 
+    <!-- PROJECTS (10 cards) -->
     <section id="projects">
       <div class="container">
         <h2 class="section-title">My Projects</h2>
         <div class="projects-grid">
-          <!-- Project 1 -->
-          <div class="project-card fade-in">
-            <div class="project-img-container">
-              <img src="evanOddCalc.png" alt="Even or Odd calculator preview" class="project-img">
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Even or Odd Calculator</h3>
-              <p class="project-description">A Python program that determines if a number is even or odd using the modulo operator.</p>
-              <div class="project-tech">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">AP CSP</span>
-              </div>
-              <a href="https://github.com/KingFarooq/Even-Odd-Calc" class="project-link" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i> View on GitHub
-              </a>
-            </div>
+          <!-- 1 -->
+          <div class="project-card">
+            <div class="project-img-container"><img src="evanOddCalc.png" alt="Even or Odd" class="project-img"></div>
+            <div class="project-content"><h3 class="project-title">Even or Odd Calculator</h3><p class="project-description">A Python program that determines if a number is even or odd using the modulo operator.</p><div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">AP CSP</span></div><a href="https://github.com/KingFarooq/Even-Odd-Calc" class="project-link"><i class="fab fa-github"></i> View on GitHub</a></div>
           </div>
-
-          <!-- Project 2 -->
-          <div class="project-card fade-in">
-            <div class="project-img-container">
-              <img src="madLibs.png" alt="Mad Libs project screenshot" class="project-img">
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Mad Libs</h3>
-              <p class="project-description">An interactive Python game that creates funny stories based on user input.</p>
-              <div class="project-tech">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">AP CSP</span>
-              </div>
-              <a href="https://github.com/KingFarooq/MadLibs" class="project-link" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i> View on GitHub
-              </a>
-            </div>
+          <!-- 2 -->
+          <div class="project-card">
+            <div class="project-img-container"><img src="madLibs.png" alt="Mad Libs" class="project-img"></div>
+            <div class="project-content"><h3 class="project-title">Mad Libs</h3><p class="project-description">An interactive Python game that creates funny stories based on user input.</p><div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">AP CSP</span></div><a href="https://github.com/KingFarooq/MadLibs" class="project-link"><i class="fab fa-github"></i> View on GitHub</a></div>
           </div>
-
-          <!-- Project 3 -->
-          <div class="project-card fade-in">
-            <div class="project-img-container">
-              <img src="caffine.png" alt="Caffeine filter tool preview" class="project-img">
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Drink Specs Filter</h3>
-              <p class="project-description">A Python tool that filters drinks based on caffeine content, with data from Excel.</p>
-              <div class="project-tech">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">AP CSP</span>
-                <span class="tech-tag">Excel</span>
-              </div>
-              <a href="https://github.com/KingFarooq/Caffeine-in-Drinks" class="project-link" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i> View on GitHub
-              </a>
-            </div>
+          <!-- 3 -->
+          <div class="project-card">
+            <div class="project-img-container"><img src="caffine.png" alt="Caffeine filter" class="project-img"></div>
+            <div class="project-content"><h3 class="project-title">Drink Specs Filter</h3><p class="project-description">A Python tool that filters drinks based on caffeine content, with data from Excel.</p><div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Excel</span></div><a href="https://github.com/KingFarooq/Caffeine-in-Drinks" class="project-link"><i class="fab fa-github"></i> View on GitHub</a></div>
           </div>
-
-          <!-- Project 4 -->
-          <div class="project-card fade-in">
-            <div class="project-img-container">
-              <img src="dinner table.png" alt="Dinner Table CAD preview" class="project-img">
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Dinner Table Assembly</h3>
-              <p class="project-description">CAD design and engineering of a dinner table using SolidWorks.</p>
-              <div class="project-tech">
-                <span class="tech-tag">CAD</span>
-                <span class="tech-tag">SolidWorks</span>
-                <span class="tech-tag">Engineering</span>
-              </div>
-              <a href="https://github.com/KingFarooq/Dinner-Table" class="project-link" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i> View on GitHub
-              </a>
-            </div>
+          <!-- 4 -->
+          <div class="project-card">
+            <div class="project-img-container"><img src="dinner table.png" alt="Dinner Table" class="project-img"></div>
+            <div class="project-content"><h3 class="project-title">Dinner Table Assembly</h3><p class="project-description">CAD design and engineering of a dinner table using SolidWorks.</p><div class="project-tech"><span class="tech-tag">CAD</span><span class="tech-tag">SolidWorks</span></div><a href="https://github.com/KingFarooq/Dinner-Table" class="project-link"><i class="fab fa-github"></i> View on GitHub</a></div>
           </div>
-
-          <!-- Project 5 -->
-          <div class="project-card fade-in">
-            <div class="project-img-container">
-              <img src="workbench.png" alt="Workbench project" class="project-img">
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Table / Workbench</h3>
-              <p class="project-description">Woodworking project combining craftsmanship with engineering principles.</p>
-              <div class="project-tech">
-                <span class="tech-tag">Woodworking</span>
-                <span class="tech-tag">Engineering</span>
-              </div>
-              <a href="https://github.com/KingFarooq/Workbench" class="project-link" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i> View on GitHub
-              </a>
-            </div>
+          <!-- 5 -->
+          <div class="project-card">
+            <div class="project-img-container"><img src="workbench.png" alt="Workbench" class="project-img"></div>
+            <div class="project-content"><h3 class="project-title">Table / Workbench</h3><p class="project-description">Woodworking project combining craftsmanship with engineering principles.</p><div class="project-tech"><span class="tech-tag">Woodworking</span><span class="tech-tag">Engineering</span></div><a href="https://github.com/KingFarooq/Workbench" class="project-link"><i class="fab fa-github"></i> View on GitHub</a></div>
           </div>
-
-          <!-- Project 6 -->
-          <div class="project-card fade-in">
-            <div class="project-img-container">
-              <img src="birdhouse.png" alt="Birdhouse CAD project" class="project-img">
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Northern Cardinal Bird House</h3>
-              <p class="project-description">Specially designed bird house for Northern Cardinals using CAD and SolidWorks.</p>
-              <div class="project-tech">
-                <span class="tech-tag">CAD</span>
-                <span class="tech-tag">SolidWorks</span>
-                <span class="tech-tag">Engineering</span>
-              </div>
-              <a href="https://github.com/KingFarooq/Birdhouse" class="project-link" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i> View on GitHub
-              </a>
-            </div>
+          <!-- 6 -->
+          <div class="project-card">
+            <div class="project-img-container"><img src="birdhouse.png" alt="Birdhouse" class="project-img"></div>
+            <div class="project-content"><h3 class="project-title">Northern Cardinal Bird House</h3><p class="project-description">Specially designed bird house for Northern Cardinals using CAD and SolidWorks.</p><div class="project-tech"><span class="tech-tag">CAD</span><span class="tech-tag">SolidWorks</span></div><a href="https://github.com/KingFarooq/Birdhouse" class="project-link"><i class="fab fa-github"></i> View on GitHub</a></div>
           </div>
-
-          <!-- Project 7 -->
-          <div class="project-card fade-in">
-            <div class="project-img-container">
-              <img src="greenhouse.png" alt="Mobile Greenhouse project" class="project-img">
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Mobile Greenhouse</h3>
-              <p class="project-description">Portable greenhouse design combining woodworking, CAD, and team leadership.</p>
-              <div class="project-tech">
-                <span class="tech-tag">Woodworking</span>
-                <span class="tech-tag">CAD</span>
-                <span class="tech-tag">SolidWorks</span>
-                <span class="tech-tag">Teamwork</span>
-              </div>
-              <a href="https://github.com/KingFarooq/Mobile-Greenhouse" class="project-link" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i> View on GitHub
-              </a>
-            </div>
+          <!-- 7 -->
+          <div class="project-card">
+            <div class="project-img-container"><img src="greenhouse.png" alt="Greenhouse" class="project-img"></div>
+            <div class="project-content"><h3 class="project-title">Mobile Greenhouse</h3><p class="project-description">Portable greenhouse design combining woodworking, CAD, and team leadership.</p><div class="project-tech"><span class="tech-tag">Woodworking</span><span class="tech-tag">CAD</span><span class="tech-tag">SolidWorks</span></div><a href="https://github.com/KingFarooq/Mobile-Greenhouse" class="project-link"><i class="fab fa-github"></i> View on GitHub</a></div>
           </div>
-
-          <!-- Project 8 -->
-          <div class="project-card fade-in">
-            <div class="project-img-container">
-              <img src="englishToMorse.png" alt="English to Morse converter" class="project-img">
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">English to Morse Code</h3>
-              <p class="project-description">A Python program that converts English text into Morse code.</p>
-              <div class="project-tech">
-                <span class="tech-tag">AP CSP</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Dictionary</span>
-              </div>
-              <a href="https://github.com/KingFarooq/English-to-Morse" class="project-link" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i> View on GitHub
-              </a>
-            </div>
+          <!-- 8 -->
+          <div class="project-card">
+            <div class="project-img-container"><img src="englishToMorse.png" alt="Morse" class="project-img"></div>
+            <div class="project-content"><h3 class="project-title">English to Morse Code</h3><p class="project-description">A Python program that converts English text into Morse code.</p><div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">AP CSP</span></div><a href="https://github.com/KingFarooq/English-to-Morse" class="project-link"><i class="fab fa-github"></i> View on GitHub</a></div>
           </div>
-
-          <!-- Project 9 -->
-          <div class="project-card fade-in">
-            <div class="project-img-container">
-              <img src="Key Safe.png" alt="Key Safe" class="project-img">
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Key Safe</h3>
-              <p class="project-description">A website application based password manager that uses local storage.</p>
-              <div class="project-tech">
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-                <span class="tech-tag">Javascript Data Managment</span>
-                <span class="tech-tag">v2.17.0</span>
-              </div>
-              <div class="portfolio-links">
-                  <a href="https://kingfarooq.github.io/key-safe/" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fas fa-external-link-alt"></i> Live Demo
-                  </a>
-                  <a href="https://github.com/KingFarooq/key-safe" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fab fa-github"></i> View on Github
-                  </a>
-                </div>
-            </div>
+          <!-- 9 -->
+          <div class="project-card">
+            <div class="project-img-container"><img src="Key Safe.png" alt="Key Safe" class="project-img"></div>
+            <div class="project-content"><h3 class="project-title">Key Safe</h3><p class="project-description">A website application based password manager that uses local storage.</p><div class="project-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JS</span></div><div class="portfolio-links"><a href="https://kingfarooq.github.io/key-safe/" class="portfolio-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="https://github.com/KingFarooq/key-safe" class="portfolio-link" target="_blank"><i class="fab fa-github"></i> GitHub</a></div></div>
+          </div>
+          <!-- 10 -->
+          <div class="project-card">
+            <div class="project-img-container"><img src="notemaster.png" alt="NoteMaster" class="project-img"></div>
+            <div class="project-content"><h3 class="project-title">NoteMaster</h3><p class="project-description">A website application based note organizer that uses localStorage.</p><div class="project-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JS</span></div><div class="portfolio-links"><a href="https://kingfarooq.github.io/NoteMaster/" class="portfolio-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="https://github.com/KingFarooq/NoteMaster" class="portfolio-link" target="_blank"><i class="fab fa-github"></i> GitHub</a></div></div>
+          </div>
         </div>
-
-        <!-- Project 10 -->
-            <div class="project-card fade-in">
-            <div class="project-img-container">
-              <img src="notemaster.png" alt="NoteMaster" class="project-img">
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">NoteMaster</h3>
-              <p class="project-description">A website application based note organizer that uses localStorage.</p>
-              <div class="project-tech">
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-                <span class="tech-tag">Javascript Data Managment</span>
-                <span class="tech-tag">v1.18.0</span>
-              </div>
-              <div class="portfolio-links">
-                  <a href="https://kingfarooq.github.io/NoteMaster/" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fas fa-external-link-alt"></i> Live Demo
-                  </a>
-                  <a href="https://github.com/KingFarooq/NoteMaster" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fab fa-github"></i> View on Github
-                  </a>
-                </div>
-            </div>
-          </div>
       </div>
     </section>
 
+    <!-- BIG PROJECTS -->
     <section id="big-projects" style="background: rgba(5,5,10,0.6);">
       <div class="container">
         <h2 class="section-title">Big Projects</h2>
-
-        <div class="big-project fade-in">
+        <div class="big-project">
           <h3 class="big-project-title">Showcase '24 - EMG Prosthetic Hand</h3>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:center;">
-            <div>
-              <p>This project was inspired by amputees. People should not be limited to the functionality of their limbs. We built an EMG-powered prosthetic hand using a MyoWare sensor to control servos for hand motion.</p>
-              <p><strong>How can engineering improve modern healthcare?</strong></p>
-              <p>We can create robotic helpers that follow gestures for lab safety, and prosthetic designs that give users better control and feedback.</p>
-
-              <div class="team-members" style="margin-top:1rem;">
-                <h4 style="font-family:var(--font-main); color:var(--primary); margin-bottom:.6rem;">Group Members</h4>
-                <div class="team-member">Farooq Anwar - Leader</div>
-                <div class="team-member">Dylan Kong</div>
-                <div class="team-member">Patrick Matyniak</div>
-              </div>
-            </div>
-            <div class="big-project-img-container">
-              <img src="arm.png" alt="EMG Prosthetic Hand" class="big-project-img">
-            </div>
+            <div><p>EMG-powered prosthetic hand using MyoWare sensor to control servos. Inspired by amputees.This project was inspired by amputees. People should not be limited to the functionality of their limbs. We built an EMG-powered prosthetic hand using a MyoWare sensor to control servos for hand motion.</p><p><strong>How can engineering improve modern healthcare?</strong></p><p>We can create robotic helpers that follow gestures for lab safety, and prosthetic designs that give users better control and feedback.</p><div><h4 style="color:var(--primary);">Group Members</h4><div>Farooq Anwar - Leader</div><div>Dylan Kong</div><div>Patrick Matyniak</div></div></div>
+            <div class="big-project-img-container"><img src="arm.png" alt="EMG Hand" class="big-project-img"></div>
           </div>
-          <a href="https://github.com/KingFarooq/EMG-Prosthetic-Arm" class="project-link" target="_blank" rel="noopener" style="display:inline-flex; margin-top:12px;">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
+          <a href="https://github.com/KingFarooq/EMG-Prosthetic-Arm" class="project-link" style="display:inline-flex; margin-top:12px;"><i class="fab fa-github"></i> View on GitHub</a>
         </div>
-
-        <div class="big-project fade-in">
+        <div class="big-project">
           <h3 class="big-project-title">Showcase '25 - AI Traffic Optimization</h3>
           <div class="ai-project-grid">
-            <div>
-              <p><strong>How can AI optimize traffic flow and safety at Innovation Academy during peak hours?</strong></p>
-              <p>The research aims to design machine learning models to analyze traffic data and predict congestion. A dynamic, AI-driven system can reduce wait times and improve pedestrian safety by adjusting signals and providing routing suggestions during peak times.</p>
-            </div>
+            <div><p><strong>How can AI optimize traffic flow and safety at Innovation Academy during peak hours?</strong></p><p>The research aims to design machine learning models to analyze traffic data and predict congestion. A dynamic, AI-driven system can reduce wait times and improve pedestrian safety by adjusting signals and providing routing suggestions during peak times.</p></div>
             <div class="ai-project-images">
-              <div class="big-project-img-container">
-                <img src="traffic.png" alt="AI Traffic Optimization" class="big-project-img">
-              </div>
-              <div class="big-project-img-container">
-                <img src="trafficChart.png" alt="Traffic data chart" class="big-project-img">
-              </div>
+              <div class="big-project-img-container"><img src="traffic.png" alt="AI Traffic" class="big-project-img"></div>
+              <div class="big-project-img-container"><img src="trafficChart.png" alt="Traffic chart" class="big-project-img"></div>
             </div>
           </div>
-          <a href="https://github.com/KingFarooq/TrafficCongestionWithAI" class="project-link" target="_blank" rel="noopener" style="display:inline-flex; margin-top:12px;">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
-    </section>
-
-    <!-- Updated About with slideshow -->
-    <section id="about">
-      <div class="about-container">
-        <!-- Text -->
-        <div class="about-text">
-          <h2>About Me</h2>
-          <p>
-            I’m a high school senior at Innovation Academy with a strong focus on computer science, engineering, and AI. I build real-world projects that combine software, hardware, and design — from EMG-powered prosthetics and AI traffic systems to web apps, CAD models, and embedded systems. I’m passionate about using technology to solve meaningful problems and create tools that actually help people.
-          </p>
-        </div>
-
-        <!-- Slideshow -->
-        <div class="about-slideshow" aria-live="polite" aria-label="About me slideshow">
-          <!-- Slides will be added dynamically via JavaScript -->
-          <div class="slide-dots" aria-hidden="false">
-            <!-- Dots will be added dynamically via JavaScript -->
-          </div>
+          <a href="https://github.com/KingFarooq/TrafficCongestionWithAI" class="project-link" style="display:inline-flex; margin-top:12px;"><i class="fab fa-github"></i> View on GitHub</a>
         </div>
       </div>
     </section>
 
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-container">
+        <div class="about-text"><h2>About Me</h2><p>I’m a high school senior at Innovation Academy with a strong focus on computer science, engineering, and AI. I build real-world projects that combine software, hardware, and design — from EMG-powered prosthetics and AI traffic systems to web apps, CAD models, and embedded systems. I’m passionate about using technology to solve meaningful problems and create tools that actually help people.</p></div>
+        <div class="about-slideshow" aria-label="slideshow"><div class="slide-dots"></div></div>
+      </div>
+    </section>
+
+    <!-- TIMELINE with working links -->
     <section id="timeline">
       <div class="container">
         <h2 class="section-title">Timeline</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-date">2022</div>
-              <h3>Innovation Academy</h3>
-              <p>Enrolled in IA.</p>
-              <h3>Soccer</h3>
-              <p>Became a second consecutive champion winner. Won Leadership & MVP award.</p>
-              <h3>Top 10 in FCSTLC</h3>
-              <p>Created a logo design for the Fulton County Schools Technology Logo Competition and placed top 10.</p>
+        <div class="scroll-hint"><i class="fas fa-arrow-left"></i><span>Scroll to explore</span><i class="fas fa-arrow-right"></i></div>
+        <div class="timeline-wrapper" id="timelineWrapper">
+          <div class="timeline-horizontal">
+            <div class="timeline-item">
+              <span class="timeline-date">2022</span>
+              <div class="timeline-content">
+                <div class="timeline-entry">
+                  <h3><a href="https://fcsinnovationacademy.fultonschools.org/" target="_blank">Innovation Academy <i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i></a></h3>
+                  <p>Enrolled in IA.</p>
+                  <h3>Soccer</h3>
+                  <p>Became a second consecutive champion winner. Won Leadership & MVP award.</p>
+                  <h3>Top 10 in FCSTLC</h3>
+                  <p>Created a logo design for the Fulton County Schools Technology Logo Competition and placed top 10.</p>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-date">2023</div>
-              <h3>Engineering Concepts</h3>
-              <p>Introduced to Arduinos and machines. Created CAD projects and worked on the Arm project.</p>
-              <h3>AP Computer Science Principles</h3>
-              <p>Learned Python and developed multiple projects.</p>
-              <h3>Referee</h3>
-              <p>Became a soccer referee for a year.</p>
+            <div class="timeline-item">
+              <span class="timeline-date">2023</span>
+              <div class="timeline-content">
+                <div class="timeline-entry">
+                  <h3>Engineering Concepts</h3>
+                  <p>Introduced to Arduinos and machines. Created CAD projects and worked on the Arm project.</p>
+                  <h3>AP Computer Science Principles</h3>
+                  <p>Learned Python and developed multiple projects.</p>
+                  <h3><a href="https://www.ussoccer.com/refereeing" target="_blank">Referee <i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i></a></h3>
+                  <p>Became a soccer referee for a year.</p>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-date">2024</div>
-              <h3>AI Research</h3>
-              <p>Focused on AI research and hands-on projects. Received awards in project-based learning and prototyping, and presented at a fundraiser event.</p>
-              <h3>Engineering Applications</h3>
-              <p>Built wood & metal projects and learned new shop machines.</p>
-              <h3>Embedded Computing</h3>
-              <p>Created Arduino projects including a boxing trainer.</p>
-              <h3>Arm Project</h3>
-              <p>The arm went to a Georgia Tech lab through a group member's internship.</p>
-              <h3>KC Medical Care</h3>
-              <p>Interned at KC Medical Care assisting with troubleshooting, research, and marketing.</p>
+            <div class="timeline-item">
+              <span class="timeline-date">2024</span>
+              <div class="timeline-content">
+                <div class="timeline-entry">
+                  <h3>AI Research</h3>
+                  <p>Focused on AI research and hands-on projects. Received awards in project-based learning and prototyping, and presented at a fundraiser event.</p>
+                  <h3>Engineering Applications</h3>
+                  <p>Built wood & metal projects and learned new shop machines.</p>
+                  <h3>Embedded Computing</h3>
+                  <p>Created Arduino projects including a boxing trainer.</p>
+                  <h3>Arm Project</h3>
+                  <p>The arm went to a Georgia Tech lab through a group member's internship.</p>
+                  <h3><a href="https://kcmedicalcare.org/" target="_blank">KC Medical Care <i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i></a></h3>
+                  <p>Interned at KC Medical Care assisting with troubleshooting, research, and marketing.</p>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-date">2025</div>
-              <h3>Gwinnett Technical College</h3>
-              <p>Enrolled as a Duel Enrollment student at Gwinnett Technical College.</p>
-              <h3>VDART</h3>
-              <p>Offered a position as a Strategy Enablement Analyst at VDART. Projects include but not limited to: Marketing Academy, AI Chatbots across websites, AI Content Automation, App development, Agentic AI and Application Design and Development.</p>
+            <div class="timeline-item">
+              <span class="timeline-date">2025</span>
+              <div class="timeline-content">
+                <div class="timeline-entry">
+                  <h3><a href="https://gwinnetttech.edu/" target="_blank">Gwinnett Technical College <i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i></a></h3>
+                  <p>Enrolled as a Dual Enrollment student at Gwinnett Technical College.</p>
+                  <h3><a href="https://www.vdart.com/" target="_blank">VDART <i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i></a></h3>
+                  <p>Offered a position as a Strategy Enablement Analyst at VDART. Projects include but not limited to: Marketing Academy, AI Chatbots across websites, AI Content Automation, App development, Agentic AI and Application Design and Development.</p>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="timeline-date">2026</div>
-              <h3>College</h3>
-              <p>Accepted at Kennesaw State University (KSU) and will attend as a freshman during the 2026 fall semester.</p>
-              <h3>The National Society of High School Scholars</h3>
-              <p>Was invited to join the National Society of High School Scholars (NSHSS) for academic excellence.</p>
-              <h3>Honor Roll</h3>
-              <p>Placed on the Honor Roll for maintaining a high GPA throughout high school.</p>
-              <h3>Office Depot OfficeMax</h3>
-              <p>Obtained a part-time position at Office Depot OfficeMax.</p>
+            <div class="timeline-item">
+              <span class="timeline-date">2026</span>
+              <div class="timeline-content">
+                <div class="timeline-entry">
+                  <h3><a href="https://www.kennesaw.edu/" target="_blank">College Acceptance <i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i></a></h3>
+                  <p>Accepted at Kennesaw State University (KSU) and will attend as a freshman during the 2026 fall semester.</p>
+                  <h3><a href="https://www.nshss.org/" target="_blank">The National Society of High School Scholars <i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i></a></h3>
+                  <p>Was invited to join the National Society of High School Scholars (NSHSS) for academic excellence.</p>
+                  <h3>Honor Roll</h3>
+                  <p>Placed on the Honor Roll for maintaining a high GPA throughout high school.</p>
+                  <h3><a href="https://www.officedepot.com/" target="_blank">Office Depot OfficeMax <i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i></a></h3>
+                  <p>Obtained a part-time position at Office Depot OfficeMax.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- NEW: Portfolio Showcase Section -->
+    <!-- OTHERS (Portfolios + CodePen) with all 7 CodePens -->
     <section id="others">
       <div class="container">
         <h2 class="section-title">Others</h2>
-        
         <div class="portfolio-tabs">
           <button class="tab-btn active" data-tab="portfolios">Portfolios</button>
           <button class="tab-btn" data-tab="codepen">CodePen Projects</button>
         </div>
-        
         <div class="tab-content active" id="portfolios">
           <div class="portfolio-grid">
-            <!-- Portfolio Item 1 -->
-            <div class="portfolio-item fade-in">
-              <div class="portfolio-img-container">
-                <img src="tab picture_ab.png" alt="Berry Portfolio Preview" class="portfolio-img">
-              </div>
-              <div class="portfolio-content">
-                <h3 class="portfolio-title">Abdulmoiz's Digital Portfolio</h3>
-                <p class="portfolio-description">A clean, modern portfolio design with smooth animations and responsive layout. Custom made for Abdulmoiz Hussaini.</p>
-                <div class="portfolio-links">
-                  <a href="https://abdulmoiz-h.github.io/" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fas fa-external-link-alt"></i> Live Demo
-                  </a>
-                  <a href="https://github.com/BerryFN/berryfn.github.io" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fab fa-github"></i> Source Code
-                  </a>
-                </div>
-              </div>
+            <div class="portfolio-item">
+              <div class="portfolio-img-container"><img src="tab picture_ab.png" alt="Abdulmoiz portfolio" class="portfolio-img"></div>
+              <div class="portfolio-content"><h3 class="portfolio-title">Abdulmoiz's Digital Portfolio</h3><p class="portfolio-description">A clean, modern portfolio design with smooth animations and responsive layout. Custom made for Abdulmoiz Hussaini.</p><div class="portfolio-links"><a href="https://abdulmoiz-h.github.io/" class="portfolio-link"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="https://github.com/BerryFN/berryfn.github.io" class="portfolio-link"><i class="fab fa-github"></i> Source Code</a></div></div>
             </div>
           </div>
         </div>
-        
         <div class="tab-content" id="codepen">
           <div class="portfolio-grid">
-            <!-- CodePen Item 1 -->
-            <div class="portfolio-item fade-in">
-              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/ZEmOLMp?height=300&theme-id=dark&default-tab=result" scrolling="no" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-                See the Pen <a href="https://codepen.io/KingFarooq/pen/ZEmOLMp">Dark theme analog clock</a> by Farooq Anwar (<a href="https://codepen.io/KingFarooq">@KingFarooq</a>) on <a href="https://codepen.io">CodePen</a>.
-              </iframe>
+            <!-- Dark Analog Clock -->
+            <div class="portfolio-item">
+              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/ZEmOLMp?height=300&theme-id=dark&default-tab=result" loading="lazy"></iframe>
               <div class="portfolio-content">
-                <h3 class="portfolio-title">Dark Theme Analog Clock</h3>
-                <p class="portfolio-description">A sleek analog clock with a dark theme, smooth animations, and real-time updates.</p>
-                <div class="portfolio-links">
-                  <a href="https://codepen.io/KingFarooq/pen/ZEmOLMp" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fab fa-codepen"></i> View on CodePen
-                  </a>
-                </div>
+                <h3 class="portfolio-title">Dark Analog Clock</h3>
+                <p>A sleek analog clock with a dark theme, smooth animations, and real-time updates.</p>
+                <a href="https://codepen.io/KingFarooq/pen/ZEmOLMp" class="portfolio-link" target="_blank"><i class="fab fa-codepen"></i> View on CodePen</a>
               </div>
             </div>
-            
-            <!-- CodePen Item 2 -->
-            <div class="portfolio-item fade-in">
-              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/oNQLBJd?height=300&theme-id=light&default-tab=result" scrolling="no" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-                See the Pen <a href="https://codepen.io/KingFarooq/pen/oNQLBJd">Light themed analog clock</a> by Farooq Anwar (<a href="https://codepen.io/KingFarooq">@KingFarooq</a>) on <a href="https://codepen.io">CodePen</a>.
-              </iframe>
+            <!-- Light Analog Clock -->
+            <div class="portfolio-item">
+              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/oNQLBJd?height=300&theme-id=light&default-tab=result" loading="lazy"></iframe>
               <div class="portfolio-content">
-                <h3 class="portfolio-title">Light Themed Analog Clock</h3>
-                <p class="portfolio-description">A clean, light-themed analog clock with elegant design and smooth second hand movement.</p>
-                <div class="portfolio-links">
-                  <a href="https://codepen.io/KingFarooq/pen/oNQLBJd" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fab fa-codepen"></i> View on CodePen
-                  </a>
-                </div>
+                <h3 class="portfolio-title">Light Analog Clock</h3>
+                <p>A clean, light-themed analog clock with elegant design and smooth second hand movement.</p>
+                <a href="https://codepen.io/KingFarooq/pen/oNQLBJd" class="portfolio-link" target="_blank"><i class="fab fa-codepen"></i> View on CodePen</a>
               </div>
             </div>
-            
-            <!-- CodePen Item 3 -->
-            <div class="portfolio-item fade-in">
-              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/RwqRjVy?height=300&theme-id=dark&default-tab=result" scrolling="no" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-                See the Pen <a href="https://codepen.io/KingFarooq/pen/RwqRjVy">Hacker screensaver</a> by Farooq Anwar (<a href="https://codepen.io/KingFarooq">@KingFarooq</a>) on <a href="https://codepen.io">CodePen</a>.
-              </iframe>
+            <!-- Hacker Screensaver -->
+            <div class="portfolio-item">
+              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/RwqRjVy?height=300&theme-id=dark&default-tab=result" loading="lazy"></iframe>
               <div class="portfolio-content">
                 <h3 class="portfolio-title">Hacker Screensaver</h3>
-                <p class="portfolio-description">A Matrix-inspired hacker screensaver with falling characters and green color scheme.</p>
-                <div class="portfolio-links">
-                  <a href="https://codepen.io/KingFarooq/pen/RwqRjVy" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fab fa-codepen"></i> View on CodePen
-                  </a>
-                </div>
+                <p>A Matrix-inspired hacker screensaver with falling characters and green color scheme.</p>
+                <a href="https://codepen.io/KingFarooq/pen/RwqRjVy" class="portfolio-link" target="_blank"><i class="fab fa-codepen"></i> View on CodePen</a>
               </div>
             </div>
-            
-            <!-- CodePen Item 4 -->
-            <div class="portfolio-item fade-in">
-              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/yLQJMBV?height=300&theme-id=light&default-tab=result" scrolling="no" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-                See the Pen <a href="https://codepen.io/KingFarooq/pen/yLQJMBV">Light themed digital clock</a> by Farooq Anwar (<a href="https://codepen.io/KingFarooq">@KingFarooq</a>) on <a href="https://codepen.io">CodePen</a>.
-              </iframe>
+            <!-- Light Digital Clock -->
+            <div class="portfolio-item">
+              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/yLQJMBV?height=300&theme-id=light&default-tab=result" loading="lazy"></iframe>
               <div class="portfolio-content">
-                <h3 class="portfolio-title">Light Themed Digital Clock</h3>
-                <p class="portfolio-description">A minimalist digital clock with light theme and clean typography.</p>
-                <div class="portfolio-links">
-                  <a href="https://codepen.io/KingFarooq/pen/yLQJMBV" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fab fa-codepen"></i> View on CodePen
-                  </a>
-                </div>
+                <h3 class="portfolio-title">Light Digital Clock</h3>
+                <p>A minimalist digital clock with light theme and clean typography.</p>
+                <a href="https://codepen.io/KingFarooq/pen/yLQJMBV" class="portfolio-link" target="_blank"><i class="fab fa-codepen"></i> View on CodePen</a>
               </div>
             </div>
-            
-            <!-- CodePen Item 5 -->
-            <div class="portfolio-item fade-in">
-              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/jOQrygq?height=300&theme-id=dark&default-tab=result" scrolling="no" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-                See the Pen <a href="https://codepen.io/KingFarooq/pen/jOQrygq">Dark themed digital clock</a> by Farooq Anwar (<a href="https://codepen.io/KingFarooq">@KingFarooq</a>) on <a href="https://codepen.io">CodePen</a>.
-              </iframe>
+            <!-- Dark Digital Clock -->
+            <div class="portfolio-item">
+              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/jOQrygq?height=300&theme-id=dark&default-tab=result" loading="lazy"></iframe>
               <div class="portfolio-content">
-                <h3 class="portfolio-title">Dark Themed Digital Clock</h3>
-                <p class="portfolio-description">A sleek digital clock with dark theme and glowing effects.</p>
-                <div class="portfolio-links">
-                  <a href="https://codepen.io/KingFarooq/pen/jOQrygq" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fab fa-codepen"></i> View on CodePen
-                  </a>
-                </div>
+                <h3 class="portfolio-title">Dark Digital Clock</h3>
+                <p>A sleek digital clock with dark theme and glowing effects.</p>
+                <a href="https://codepen.io/KingFarooq/pen/jOQrygq" class="portfolio-link" target="_blank"><i class="fab fa-codepen"></i> View on CodePen</a>
               </div>
             </div>
-            
-            <!-- CodePen Item 6 -->
-            <div class="portfolio-item fade-in">
-              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/yLQJPPN?height=300&theme-id=dark&default-tab=result" scrolling="no" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-                See the Pen <a href="https://codepen.io/KingFarooq/pen/yLQJPPN">Terminal</a> by Farooq Anwar (<a href="https://codepen.io/KingFarooq">@KingFarooq</a>) on <a href="https://codepen.io">CodePen</a>.
-              </iframe>
+            <!-- Terminal -->
+            <div class="portfolio-item">
+              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/yLQJPPN?height=300&theme-id=dark&default-tab=result" loading="lazy"></iframe>
               <div class="portfolio-content">
                 <h3 class="portfolio-title">Terminal</h3>
-                <p class="portfolio-description">A browser-based terminal simulation with command functionality and retro styling.</p>
-                <div class="portfolio-links">
-                  <a href="https://codepen.io/KingFarooq/pen/yLQJPPN" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fab fa-codepen"></i> View on CodePen
-                  </a>
-                </div>
+                <p>A browser-based terminal simulation with command functionality and retro styling.</p>
+                <a href="https://codepen.io/KingFarooq/pen/yLQJPPN" class="portfolio-link" target="_blank"><i class="fab fa-codepen"></i> View on CodePen</a>
               </div>
             </div>
-            
-            <!-- CodePen Item 7 -->
-            <div class="portfolio-item fade-in">
-              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/QWJvOgg?height=300&theme-id=dark&default-tab=result" scrolling="no" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-                See the Pen <a href="https://codepen.io/KingFarooq/pen/QWJvOgg">Online text editor</a> by Farooq Anwar (<a href="https://codepen.io/KingFarooq">@KingFarooq</a>) on <a href="https://codepen.io">CodePen</a>.
-              </iframe>
+            <!-- Online Text Editor -->
+            <div class="portfolio-item">
+              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/QWJvOgg?height=300&theme-id=dark&default-tab=result" loading="lazy"></iframe>
               <div class="portfolio-content">
                 <h3 class="portfolio-title">Online Text Editor</h3>
-                <p class="portfolio-description">A simple online text editor with basic formatting options and dark theme.</p>
-                <div class="portfolio-links">
-                  <a href="https://codepen.io/KingFarooq/pen/QWJvOgg" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fab fa-codepen"></i> View on CodePen
-                  </a>
-                </div>
+                <p>A simple online text editor with basic formatting options and dark theme.</p>
+                <a href="https://codepen.io/KingFarooq/pen/QWJvOgg" class="portfolio-link" target="_blank"><i class="fab fa-codepen"></i> View on CodePen</a>
               </div>
             </div>
-            
-            <!-- CodePen Item 8 -->
-            <div class="portfolio-item fade-in">
-              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/BaGdYOv?height=300&theme-id=dark&default-tab=result" scrolling="no" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-                See the Pen <a href="https://codepen.io/KingFarooq/pen/BaGdYOv">July 2023 monthly codepen challenge</a> by Farooq Anwar (<a href="https://codepen.io/KingFarooq">@KingFarooq</a>) on <a href="https://codepen.io">CodePen</a>.
-              </iframe>
+            <!-- July 2023 Monthly Challenge -->
+            <div class="portfolio-item">
+              <iframe class="codepen-embed" src="https://codepen.io/KingFarooq/embed/BaGdYOv?height=300&theme-id=dark&default-tab=result" loading="lazy"></iframe>
               <div class="portfolio-content">
-                <h3 class="portfolio-title">July 2023 Monthly CodePen Challenge</h3>
-                <p class="portfolio-description">My submission for the July 2023 CodePen monthly challenge with creative coding elements.</p>
-                <div class="portfolio-links">
-                  <a href="https://codepen.io/KingFarooq/pen/BaGdYOv" class="portfolio-link" target="_blank" rel="noopener">
-                    <i class="fab fa-codepen"></i> View on CodePen
-                  </a>
-                </div>
+                <h3 class="portfolio-title">July 2023 Monthly Challenge</h3>
+                <p>My submission for the July 2023 CodePen monthly challenge with creative coding elements.</p>
+                <a href="https://codepen.io/KingFarooq/pen/BaGdYOv" class="portfolio-link" target="_blank"><i class="fab fa-codepen"></i> View on CodePen</a>
               </div>
             </div>
           </div>
@@ -1220,224 +1149,166 @@
       </div>
     </section>
 
+    <!-- BLOG SECTION -->
+    <section id="blog">
+      <div class="container">
+        <h2 class="section-title">Latest Blog</h2>
+        <div class="blog-stack">
+          <!-- Card 2 without image -->
+          <article class="blog-card" data-id="1">
+            <div class="blog-img-col" style="display: none;"></div>
+            <div class="blog-content-col">
+              <div class="blog-meta"><span><i class="far fa-calendar-alt"></i> March 10, 2026</span><span><i class="far fa-clock"></i> 3 min</span></div>
+              <h3 class="blog-title">Invitation For AI & Automation Analyst Position</h3>
+              <p class="blog-excerpt">I recived an invitation from Danaher Corporation...</p>
+              <div class="blog-footer"><div class="blog-tags"><span class="blog-tag">life-update</span><span class="blog-tag">job</span><span class="blog-tag">AI</span></div><a class="blog-link read-story-btn" data-id="1">Read full story →</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="social-links">
-        <a href="https://github.com/KingFarooq" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/farooq-anwar-81897b349/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/anwar.farooq7/" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:fmanwar3710@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/KingFarooq" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/farooq-anwar-81897b349/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/anwar.farooq7/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:fmanwar3710@gmail.com"><i class="fas fa-envelope"></i></a>
       </div>
-      <div style="opacity:.7; font-size:.95rem;">© <span id="year"></span> Farooq Anwar</div>
+      <div>© <span id="year"></span> Farooq Anwar</div>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- MODAL for blog stories -->
+  <div class="modal-overlay" id="storyModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
   <script>
     // set year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    /* ---------- Custom cursor (smooth follower) ---------- */
+    // custom cursor
     (function(){
       const cursor = document.querySelector('.cursor');
       const follower = document.querySelector('.cursor-follower');
       let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2;
       let posX = mouseX, posY = mouseY;
-
-      document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        // direct set for the small cursor for snappy feel
-        cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-      });
-
-      // follower lags behind
-      function animateFollower(){
-        posX += (mouseX - posX) * 0.12;
-        posY += (mouseY - posY) * 0.12;
-        follower.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
-        requestAnimationFrame(animateFollower);
-      }
+      document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`; });
+      function animateFollower(){ posX += (mouseX - posX) * 0.12; posY += (mouseY - posY) * 0.12; follower.style.transform = `translate3d(${posX}px, ${posY}px, 0)`; requestAnimationFrame(animateFollower); }
       requestAnimationFrame(animateFollower);
-
-      // change cursor on interactive elements
-      const interactive = 'a, button, .project-card, .btn, .slide-dot, .timeline-content, .portfolio-item, .tab-btn';
-      document.querySelectorAll(interactive).forEach(el=>{
-        el.addEventListener('mouseenter', () => {
-          cursor.style.transform += ' scale(0.9)';
-          follower.style.transform += ' scale(1.05)';
-        });
-        el.addEventListener('mouseleave', () => {
-          // reset transform by rewriting translate only (not perfect but minimal)
-          cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-          follower.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
-        });
-      });
     })();
 
-    /* ---------- Floating icon animation tweak (add different durations) ---------- */
-    document.querySelectorAll('.floating-icon').forEach((el, idx) => {
-      const base = 12 + (idx % 3) * 3;
-      el.style.animationDuration = `${base}s`;
-      el.style.opacity = '0.08';
-    });
+    // scroll to top
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+    window.addEventListener('scroll', () => { if(document.documentElement.scrollTop > 300) scrollBtn.classList.add('show'); else scrollBtn.classList.remove('show'); });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    /* ---------- Scroll-to-top button ---------- */
+    // about slideshow
     (function(){
-      const scrollBtn = document.getElementById('scrollToTopBtn');
-      function toggleScrollBtn(){
-        const scrolled = document.documentElement.scrollTop || document.body.scrollTop;
-        if(scrolled > 300) scrollBtn.classList.add('show');
-        else scrollBtn.classList.remove('show');
-      }
-      window.addEventListener('scroll', toggleScrollBtn, { passive:true });
-      // init
-      toggleScrollBtn();
-
-      scrollBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    })();
-
-    /* ---------- About slideshow (dynamic) ---------- */
-    (function(){
-      // Array of slide objects - you can easily add more slides here
-      const slides = [
-        { src: 'farooq.jpg' },
-        { src: 'farooq2.jpg' },
-        { src: 'farooq3.jpg' }
-        // Add more slides as needed:
-        // { src: 'image3.jpg', alt: 'Description', caption: 'Caption text' },
-      ];
-      
+      const slides = [{ src: 'farooq.jpg' }, { src: 'farooq2.jpg' }, { src: 'farooq3.jpg' }];
       const slideshow = document.querySelector('.about-slideshow');
       const dotsContainer = document.querySelector('.slide-dots');
-      
-      // Clear any existing content
-      slideshow.innerHTML = '';
-      dotsContainer.innerHTML = '';
-      
-      // Create slides and dots
-      slides.forEach((slide, index) => {
-        // Create slide
-        const slideEl = document.createElement('img');
-        slideEl.src = slide.src;
-        slideEl.alt = slide.alt;
-        slideEl.classList.add('about-slide');
-        if (index === 0) slideEl.classList.add('active');
-        slideshow.appendChild(slideEl);
-        
-        // Create dot
-        const dot = document.createElement('div');
-        dot.classList.add('slide-dot');
-        if (index === 0) dot.classList.add('active');
-        dot.dataset.index = index;
-        dot.setAttribute('aria-label', `Slide ${index + 1}`);
-        dotsContainer.appendChild(dot);
-      });
-      
-      // Add dots container to slideshow
-      slideshow.appendChild(dotsContainer);
-      
-      // Now initialize the slideshow functionality
-      const slideElements = Array.from(document.querySelectorAll('.about-slide'));
-      const dotElements = Array.from(document.querySelectorAll('.slide-dot'));
-      let index = 0;
-      const total = slideElements.length;
-      const intervalMs = 4000;
-      let timer = null;
-
-      function showSlide(i){
-        slideElements.forEach((s, idx) => s.classList.toggle('active', idx === i));
-        dotElements.forEach((d, idx) => d.classList.toggle('active', idx === i));
-        index = i;
-      }
-
-      function nextSlide(){
-        showSlide((index + 1) % total);
-      }
-
-      // auto start
-      timer = setInterval(nextSlide, intervalMs);
-
-      // dot click handlers
-      dotElements.forEach(dot => {
-        dot.addEventListener('click', (e) => {
-          const i = Number(dot.dataset.index);
-          showSlide(i);
-          // reset timer so user doesn't get an immediate switch
-          clearInterval(timer);
-          timer = setInterval(nextSlide, intervalMs);
+      if (slideshow) {
+        slideshow.innerHTML = ''; 
+        dotsContainer.innerHTML = '';
+        slides.forEach((slide, idx) => {
+          const img = document.createElement('img'); img.src = slide.src; img.classList.add('about-slide'); if(idx===0) img.classList.add('active'); img.alt = `Farooq ${idx+1}`; slideshow.appendChild(img);
+          const dot = document.createElement('div'); dot.classList.add('slide-dot'); if(idx===0) dot.classList.add('active'); dot.dataset.index = idx; dotsContainer.appendChild(dot);
         });
-      });
-
-      // pause on hover (optional UX)
-      slideshow.addEventListener('mouseenter', () => clearInterval(timer));
-      slideshow.addEventListener('mouseleave', () => timer = setInterval(nextSlide, intervalMs));
-    })();
-
-    /* ---------- Small fade-in animations for elements (progressive) ---------- */
-    (function(){
-      const faders = document.querySelectorAll('.fade-in');
-      faders.forEach((el, idx) => {
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(12px)';
-        el.style.transition = `opacity .6s ease ${(idx*0.12)}s, transform .6s ease ${(idx*0.12)}s`;
-        requestAnimationFrame(()=> {
-          el.style.opacity = 1;
-          el.style.transform = 'translateY(0)';
-        });
-      });
-    })();
-    
-    /* ---------- Smooth scrolling for navigation ---------- */
-    document.querySelectorAll('nav a, .scroll-down').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
+        slideshow.appendChild(dotsContainer);
+        const slideEls = document.querySelectorAll('.about-slide'), dotEls = document.querySelectorAll('.slide-dot');
+        let idx = 0, timer = setInterval(() => { showSlide((idx+1)%slideEls.length); }, 4000);
+        function showSlide(i){ slideEls.forEach((s,ix)=>s.classList.toggle('active',ix===i)); dotEls.forEach((d,ix)=>d.classList.toggle('active',ix===i)); idx = i; }
+        if (dotEls.length) {
+          dotEls.forEach(d => d.addEventListener('click', function(){ clearInterval(timer); showSlide(Number(this.dataset.index)); timer = setInterval(() => showSlide((idx+1)%slideEls.length), 4000); }));
         }
-      });
-    });
-    
-    /* ---------- Timeline interaction ---------- */
-    document.querySelectorAll('.timeline-content').forEach(item => {
-      item.addEventListener('click', function() {
-        this.classList.toggle('active');
-      });
-    });
-    
-    /* ---------- Portfolio Showcase Tabs ---------- */
-    (function(){
-      const tabBtns = document.querySelectorAll('.tab-btn');
-      const tabContents = document.querySelectorAll('.tab-content');
-      
-      // Initialize tabs - show first tab by default
-      tabContents[0].classList.add('active');
-      
-      tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Remove active class from all buttons and contents
-          tabBtns.forEach(b => b.classList.remove('active'));
-          tabContents.forEach(c => c.classList.remove('active'));
-          
-          // Add active class to clicked button
-          btn.classList.add('active');
-          
-          // Show corresponding content
-          const tabId = btn.getAttribute('data-tab');
-          document.getElementById(tabId).classList.add('active');
-        });
-      });
+      }
     })();
+
+    // smooth scroll nav
+    document.querySelectorAll('nav a, .scroll-down').forEach(anchor => {
+      anchor.addEventListener('click', function(e) { 
+        e.preventDefault(); 
+        const target = document.querySelector(this.getAttribute('href')); 
+        if(target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' }); 
+      });
+    });
+
+    // timeline drag
+    const wrap = document.getElementById('timelineWrapper'); 
+    if(wrap){ 
+      let down = false, startX, scrollLeft; 
+      wrap.addEventListener('mousedown',(e)=>{ 
+        down = true; 
+        startX = e.pageX - wrap.offsetLeft; 
+        scrollLeft = wrap.scrollLeft; 
+        wrap.style.cursor = 'grabbing';
+      }); 
+      wrap.addEventListener('mouseleave',()=>{ down = false; wrap.style.cursor = 'grab'; }); 
+      wrap.addEventListener('mouseup',()=>{ down = false; wrap.style.cursor = 'grab'; }); 
+      wrap.addEventListener('mousemove',(e)=>{ 
+        if(!down) return; 
+        e.preventDefault(); 
+        const x = e.pageX - wrap.offsetLeft; 
+        wrap.scrollLeft = scrollLeft - (x - startX) * 2; 
+      }); 
+    }
+
+    // tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => { 
+      btn.addEventListener('click', function(){ 
+        document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active')); 
+        document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active')); 
+        this.classList.add('active'); 
+        document.getElementById(this.dataset.tab).classList.add('active'); 
+      }); 
+    });
+
+    // blog modal
+    const stories = {
+      1: { title: "Invitation For AI & Automation Analyst Position", meta: "March 10, 2026 · 3 min read", body: "<p>It started with a simple email. I was checking my inbox like any other day when an unfamiliar company reached out to me. They were offering a job opportunity in AI development.</p><br><p>I had never heard of them before, but something about the message intrigued me. It wasn’t just another generic job ad — it felt personal and specific to my interests.</p><br><p>After some research, I found out they were a leading global life sciences and diagnostics innovator, with over 15 operating companies focusing on biotechnology, diagnostics, and life sciences. Danaher provides instruments, consumables, and software to help research, develop, and deliver healthcare therapies, generating nearly $24 billion in 2024 revenue.</p><br><p>Their technology is utilized in hospital laboratories, clinics, and biopharmacutical manufacturing to imporve health outcomes. Danaher is a Fortune 500 company, consistently ranking within the top 200-250 companies based on revenue. It was truly an honor to recive this email from them. At this time I have not accepted their offer.</p>" },
+    };
+    const modal = document.getElementById('storyModal'), modalTitle = document.getElementById('modalTitle'), modalMeta = document.getElementById('modalMeta'), modalBody = document.getElementById('modalBody'), modalClose = document.getElementById('modalClose');
+    if (modal && modalTitle && modalMeta && modalBody && modalClose) {
+      document.querySelectorAll('.read-story-btn').forEach(btn => { 
+        btn.addEventListener('click', (e) => { 
+          e.preventDefault(); 
+          const id = btn.dataset.id; 
+          if(stories[id]){ 
+            modalTitle.innerText = stories[id].title; 
+            modalMeta.innerText = stories[id].meta; 
+            modalBody.innerHTML = stories[id].body; 
+            modal.classList.add('active'); 
+            document.body.style.overflow = 'hidden'; 
+          } 
+        }); 
+      });
+      modalClose.addEventListener('click', () => { 
+        modal.classList.remove('active'); 
+        document.body.style.overflow = ''; 
+      });
+      modal.addEventListener('click', (e) => { 
+        if(e.target === modal) { 
+          modal.classList.remove('active'); 
+          document.body.style.overflow = ''; 
+        } 
+      });
+      document.addEventListener('keydown', (e) => { 
+        if(e.key === 'Escape' && modal.classList.contains('active')) { 
+          modal.classList.remove('active'); 
+          document.body.style.overflow = ''; 
+        } 
+      });
+    }
   </script>
 </body>
 </html>
