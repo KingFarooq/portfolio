@@ -859,7 +859,6 @@
           <li><a href="#about">About</a></li>
           <li><a href="#timeline">Timeline</a></li>
           <li><a href="#others">Others</a></li>
-          <li><a href="#blog">Blog</a></li>
         </ul>
       </nav>
     </header>
@@ -1148,25 +1147,6 @@
         </div>
       </div>
     </section>
-
-    <!-- BLOG SECTION -->
-    <section id="blog">
-      <div class="container">
-        <h2 class="section-title">Latest Blog</h2>
-        <div class="blog-stack">
-          <!-- Card 2 without image -->
-          <article class="blog-card" data-id="1">
-            <div class="blog-img-col" style="display: none;"></div>
-            <div class="blog-content-col">
-              <div class="blog-meta"><span><i class="far fa-calendar-alt"></i> March 10, 2026</span><span><i class="far fa-clock"></i> 3 min</span></div>
-              <h3 class="blog-title">Invitation For AI & Automation Analyst Position</h3>
-              <p class="blog-excerpt">I recived an invitation from Danaher Corporation...</p>
-              <div class="blog-footer"><div class="blog-tags"><span class="blog-tag">life-update</span><span class="blog-tag">job</span><span class="blog-tag">AI</span></div><a class="blog-link read-story-btn" data-id="1">Read full story →</a></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- FOOTER -->
@@ -1181,16 +1161,6 @@
       <div>© <span id="year"></span> Farooq Anwar</div>
     </div>
   </footer>
-
-  <!-- MODAL for blog stories -->
-  <div class="modal-overlay" id="storyModal">
-    <div class="modal-content">
-      <button class="modal-close" id="modalClose">&times;</button>
-      <div class="modal-title" id="modalTitle"></div>
-      <div class="modal-meta" id="modalMeta"></div>
-      <div class="modal-body" id="modalBody"></div>
-    </div>
-  </div>
 
   <script>
     // set year
@@ -1272,43 +1242,6 @@
         document.getElementById(this.dataset.tab).classList.add('active'); 
       }); 
     });
-
-    // blog modal
-    const stories = {
-      1: { title: "Invitation For AI & Automation Analyst Position", meta: "March 10, 2026 · 3 min read", body: "<p>It started with a simple email. I was checking my inbox like any other day when an unfamiliar company reached out to me. They were offering a job opportunity in AI development.</p><br><p>I had never heard of them before, but something about the message intrigued me. It wasn’t just another generic job ad — it felt personal and specific to my interests.</p><br><p>After some research, I found out they were a leading global life sciences and diagnostics innovator, with over 15 operating companies focusing on biotechnology, diagnostics, and life sciences. Danaher provides instruments, consumables, and software to help research, develop, and deliver healthcare therapies, generating nearly $24 billion in 2024 revenue.</p><br><p>Their technology is utilized in hospital laboratories, clinics, and biopharmacutical manufacturing to imporve health outcomes. Danaher is a Fortune 500 company, consistently ranking within the top 200-250 companies based on revenue. It was truly an honor to recive this email from them. At this time I have not accepted their offer.</p>" },
-    };
-    const modal = document.getElementById('storyModal'), modalTitle = document.getElementById('modalTitle'), modalMeta = document.getElementById('modalMeta'), modalBody = document.getElementById('modalBody'), modalClose = document.getElementById('modalClose');
-    if (modal && modalTitle && modalMeta && modalBody && modalClose) {
-      document.querySelectorAll('.read-story-btn').forEach(btn => { 
-        btn.addEventListener('click', (e) => { 
-          e.preventDefault(); 
-          const id = btn.dataset.id; 
-          if(stories[id]){ 
-            modalTitle.innerText = stories[id].title; 
-            modalMeta.innerText = stories[id].meta; 
-            modalBody.innerHTML = stories[id].body; 
-            modal.classList.add('active'); 
-            document.body.style.overflow = 'hidden'; 
-          } 
-        }); 
-      });
-      modalClose.addEventListener('click', () => { 
-        modal.classList.remove('active'); 
-        document.body.style.overflow = ''; 
-      });
-      modal.addEventListener('click', (e) => { 
-        if(e.target === modal) { 
-          modal.classList.remove('active'); 
-          document.body.style.overflow = ''; 
-        } 
-      });
-      document.addEventListener('keydown', (e) => { 
-        if(e.key === 'Escape' && modal.classList.contains('active')) { 
-          modal.classList.remove('active'); 
-          document.body.style.overflow = ''; 
-        } 
-      });
-    }
   </script>
 </body>
 </html>
