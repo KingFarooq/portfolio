@@ -829,6 +829,21 @@
       .portfolio-tabs { flex-direction: column; align-items: center; }
       .tab-btn { width: 80%; text-align: center; }
     }
+
+    .code-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    #secretInput:focus { border-color: var(--primary) !important; box-shadow: var(--neon-glow); }
+    #secretInput.error { border-color: #e24b4a !important; animation: shake .35s ease; }
+    #secretInput.ok    { border-color: #1d9e75 !important; }
+    @keyframes shake {
+      0%,100%{ transform:translateX(0); } 20%{ transform:translateX(-6px); }
+      40%{ transform:translateX(6px); }  60%{ transform:translateX(-4px); }
+      80%{ transform:translateX(4px); }
+    }
   </style>
 </head>
 <body>
@@ -859,6 +874,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#timeline">Timeline</a></li>
           <li><a href="#others">Others</a></li>
+          <li><a href="#blog">Blog</a></li>
         </ul>
       </nav>
     </header>
@@ -1147,6 +1163,73 @@
         </div>
       </div>
     </section>
+
+    <!-- BLOG SECTION -->
+    <section id="blog">
+      <div class="container">
+        <h2 class="section-title">Latest Blog</h2>
+        <div class="blog-stack">
+          <!-- Blog Card: 21st Century Iron Man -->
+          <article class="blog-card" data-id="ironman">
+            <div class="blog-img-col" style="display: none;"></div>
+            <div class="blog-content-col">
+              <div class="blog-meta"><span><i class="far fa-calendar-alt"></i> April 15, 2026</span><span><i class="far fa-clock"></i> 6 min read</span></div>
+              <h3 class="blog-title">I'm Basically the 21st Centurys Iron Man</h3>
+              <p class="blog-excerpt">EMG prosthetic hands, AI traffic optimization, CAD wizardry, and a relentless drive to build the future — here's why the Iron Man comparison isn't just hype...</p>
+              <div class="blog-footer"><div class="blog-tags"><span class="blog-tag">Manifesto</span><span class="blog-tag">Engineering</span><span class="blog-tag">AI</span><span class="blog-tag">prosthetics</span></div><a class="blog-link read-story-btn" data-id="ironman">Read full story →</a></div>
+            </div>
+          </article>
+
+          <article class="blog-card" data-id="linkedin">
+            <div class="blog-img-col" style="display: none;"></div>
+            <div class="blog-content-col">
+              <div class="blog-meta"><span><i class="far fa-calendar-alt"></i> March 10, 2026</span><span><i class="far fa-clock"></i> 5 min read</span></div>
+              <h3 class="blog-title">LinkedIn: What It's For vs. How It's Actually Used</h3>
+              <p class="blog-excerpt">Y'all should connect with me btw...</p>
+              <div class="blog-footer"><div class="blog-tags"><span class="blog-tag">LinkedIn</span><span class="blog-tag">Networking</span><span class="blog-tag">Career</span></div><a class="blog-link read-story-btn" data-id="linkedin">Read full story →</a></div>
+            </div>
+          </article>
+
+          <article class="blog-card" data-id="podcast">
+            <div class="blog-img-col" style="display: none;"></div>
+            <div class="blog-content-col">
+              <div class="blog-meta"><span><i class="far fa-calendar-alt"></i> March 29, 2026</span><span><i class="far fa-clock"></i> 5 min read</span></div>
+              <h3 class="blog-title">How I Want to Start a Podcast (But Have No Idea What to Talk About)</h3>
+              <p class="blog-excerpt">What should I do...?</p>
+              <div class="blog-footer"><div class="blog-tags"><span class="blog-tag">Thinking</span><span class="blog-tag">Late-Night</span><span class="blog-tag">Podcast</span></div><a class="blog-link read-story-btn" data-id="linkedin">Read full story →</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECRET CODE SECTION -->
+    <section id="secret-code" style="padding:5rem 0; text-align:center; background:rgba(5,5,10,0.5);">
+      <div class="container">
+        <div style="display:flex;justify-content:center;gap:8px;margin-bottom:2rem;" id="codeDots">
+          <div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div>
+          <div class="code-dot"></div><div class="code-dot"></div>
+        </div>
+        <h2 class="section-title" style="display:block;text-align:center;">_ _ ACCESS CODE _ _</h2>
+        <p style="opacity:0.7;margin-bottom:2rem;letter-spacing:1px;">Enter a valid code to unlock a destination</p>
+        <div style="display:flex;justify-content:center;gap:12px;max-width:480px;margin:0 auto 1.5rem;flex-wrap:wrap;">
+          <input id="secretInput" type="text" maxlength="20" placeholder="ENTER CODE"
+            autocomplete="off" spellcheck="false"
+            style="flex:1;min-width:220px;padding:12px 20px;font-family:var(--font-main);font-size:1rem;
+                  letter-spacing:4px;text-transform:uppercase;background:rgba(10,10,20,0.8);
+                  border:1px solid rgba(255,255,255,0.15);border-radius:30px;color:var(--light);
+                  text-align:center;outline:none;transition:border-color .2s,box-shadow .2s;" />
+          <button id="secretBtn"
+            style="padding:12px 28px;font-family:var(--font-main);font-size:.9rem;letter-spacing:2px;
+                  background:rgba(0,247,255,0.1);border:1px solid rgba(0,247,255,0.3);border-radius:30px;
+                  color:var(--primary);cursor:pointer;transition:all .3s;">
+            UNLOCK ›
+          </button>
+        </div>
+        <p id="secretMsg" style="min-height:24px;font-size:.9rem;transition:all .3s;"></p>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER -->
@@ -1161,6 +1244,16 @@
       <div>© <span id="year"></span> Farooq Anwar</div>
     </div>
   </footer>
+
+  <!-- MODAL for blog stories -->
+  <div class="modal-overlay" id="storyModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
 
   <script>
     // set year
@@ -1242,6 +1335,118 @@
         document.getElementById(this.dataset.tab).classList.add('active'); 
       }); 
     });
+
+    // Blog Modal Content - The 21st Century Iron Man Story
+    const stories = {
+      ironman: { 
+        title: "I'm Basically the 21st Centurys Iron Man", 
+        meta: "April 15, 2026 · 6 min read · futurist manifesto", 
+        body: "<p>Let's be honest — Tony Stark built a suit in a cave with a box of scraps. I built an <strong>EMG-powered prosthetic hand</strong> in a high school engineering lab with <strong>Arduino, MyoWare sensors, and sheer obsession</strong>. Same energy, different decade. And while I don't have a flying metal suit (yet), the parallels are undeniable: <strong>prodigy-level tech creation, relentless innovation, and a mission to change healthcare and AI.</strong> Welcome to the blueprint of the 21st century's version of Iron Man.</p><br><p>\"People should not be limited by the functionality of their limbs.\" — that was my spark. Just like Tony saw shrapnel heading for his heart, I saw amputees struggling and thought: <strong>I can fix that.</strong></p><br><p>Tony's first armor was crude but brilliant. My first big breakthrough was the <strong>EMG Prosthetic Hand</strong> (Showcase '24). Using a MyoWare muscle sensor, I programmed servos to react to electric signals from forearm muscles. The result? A functional, responsive bionic hand built by a teenager. My team and I didn't have a billion-dollar R&D department — we had a soldering iron, caffeine, and the will to merge biology with robotics. That project even made it to a <strong>Georgia Tech lab</strong> through a teammate's internship. Iron Man had his first flight; I had my first true fusion of <strong>code, hardware, and humanity</strong>.</p><br><p>Tony had FRIDAY. I have machine learning models that optimize traffic flow and pedestrian safety. My <strong>Showcase '25 project: AI Traffic Optimization</strong> tackles real-world congestion at Innovation Academy during peak hours. Using AI, we predict traffic patterns, reduce wait times, and save lives. This isn't just a school project — it's a smart city prototype. I'm teaching machines to think, adapt, and solve infrastructure problems. If Tony built an AI assistant, I'm building AI that <strong>governs urban chaos</strong>. Who's the futurist now?</p><br><p>Iron Man didn't only code — he built. I've designed <strong>dinner tables, workbenches, birdhouses, and a mobile greenhouse</strong> using SolidWorks and raw craftsmanship. My GitHub isn't just full of Python scripts (even though I have an Even-Odd Calc, Mad Libs, Morse code converters, and a key-safe password manager). I also build <strong>physical things</strong> that solve problems. From the <strong>Northern Cardinal Birdhouse</strong> to <strong>woodworking masterpieces</strong>, I merge engineering principles with real-world utility. Tony Stark said, \"Sometimes you gotta run before you can walk.\" I ran straight into <strong>embedded computing, Arduino boxing trainers, and CAD modeling</strong>.</p><br><p>Tony had Stark Industries. I've got <strong>KC Medical Care, VDART, and now Office Depot OfficeMax</strong>. At KC Medical, I did troubleshooting, research, and marketing — basically being the tech wizard for a real healthcare facility. Then <strong>VDART</strong> offered me a role as a Strategy Enablement Analyst where I work on <strong>AI chatbots, agentic AI, marketing automation, and app development</strong>. By the way, I'm still in high school. That's like being handed a miniature arc reactor and told: \"Go change the world.\"</p><br><p>Every genius needs a flashy interface. My portfolio looks like a cyberpunk control center. I've built <strong>seven interactive CodePen projects</strong>: dark/light analog clocks, hacker screensavers, terminals, and more. I don't just consume tech — I <strong>remix, redesign, and reinvent</strong>. My digital footprint is a testament to obsessive creation.</p><br><p>Iron Man is also a leader. I won <strong>back-to-back soccer championships</strong>, earned the MVP and Leadership award, and I've refereed for a year. Leadership isn't just about coding — it's about uniting a team, making split-second decisions, and driving excellence.</p><br><p>So yeah, call me arrogant, but the resume doesn't lie. I'm a <strong>maker, a coder, a biomechanical dreamer, and a strategic analyst</strong>. The 21st century needed a new kind of hero — not in spandex, but in hoodies, with GitHub repositories and a soldering iron.</p><br><p>I'm Farooq Anwar. And I'm basically the 21st century Iron Man.</p><br><p><em>P.S. Tony had Dum-E. I have a bunch of half-finished Arduino prototypes, a cat, and a caffeine addiction. Still counts.</em></p><div class='signature' style='text-align:right; margin-top:2rem; font-family:Orbitron; color:#00f7ff;'>— Farooq Anwar | arc reactor online</div>" 
+      },
+  
+      linkedin: {
+        title: "LinkedIn: What It's For vs. How It's Actually Used",
+        meta: "April 22, 2026 · 5 min read · work culture autopsy",
+        body: "<p>Let's be honest — LinkedIn was supposed to be the professional's quiet corner of the internet. A place to keep your resume updated, connect with coworkers you actually liked, and maybe — <strong>maybe</strong> — find your next job without uploading your work history into yet another clunky portal. Instead, it became a <strong>theater of professional performance</strong> where everyone is simultaneously networking, bragging, and pretending they love their 8 a.m. stand-up meetings. Same platform, different reality. Welcome to the autopsy of how we broke corporate networking.</p><br><p><strong>What it's for:</strong> a digital resume. A living, shareable document of your work history. A place to message former colleagues without it being weird. Recruiters searching for candidates. Clean. Boring. <strong>Useful.</strong></p><br><p><strong>How it's used:</strong> the humblebrag promotion post. <em>\"I'm humbled and excited to announce...\"</em> attached to a stock photo of a person staring at a mountain. The inspirational layoff post. <em>\"Today I was part of a reduction in force. And honestly? It's the best thing that ever happened to me.\"</em> No it isn't. You're allowed to be sad. You don't have to be inspiring. The CEO who just discovered vulnerability. <em>\"I cried in front of my team today. And that's okay.\"</em> Posted by someone who makes 400x the median employee salary. The 5 a.m. grindset post. A photo of a dark office. <em>\"They're sleeping. I'm building.\"</em> No you aren't. You're posting on LinkedIn. <strong>Go back to bed.</strong></p><br><p>The cost of the performance? <strong>Exhaustion.</strong> New graduates look at LinkedIn and think: <em>I need to post. I need to have a take. I need to announce every small win or I'm falling behind.</em> That pressure is real. And it's entirely manufactured. The platform doesn't reward quiet competence. It rewards visibility. So people manufacture visibility. And then everyone feels tired and fake and wonders why professional networking makes them <strong>vaguely nauseous</strong>.</p><br><p>Here's the saner approach. <strong>Set a timer.</strong> Ten minutes. Once a day. When it goes off, close the tab. <strong>Connect only with people you've actually spoken to.</strong> No LinkedIn influencers. No strangers whose job titles are three lines long. <strong>Never post about how early you wake up.</strong> Just don't. <strong>Celebrate genuine wins</strong> — but skip the humbled language. Try: <em>\"Started a new role today. Excited about it. Thanks to the people who helped.\"</em> That's it. That's enough.</p><br><p>Remember that <strong>nobody's life looks like their LinkedIn.</strong> That person with the perfect promotion post? They also ate cereal for dinner last night and cried in their car once this week. We're all the same. LinkedIn just makes us forget that.</p><br><p>So here's the bottom line. LinkedIn is a tool. A useful, sometimes effective, often ridiculous tool. It can help you find a job and stay loosely connected to your professional past. It can also convince you that you're failing at life because you didn't post a photo of your to-do list with the caption <em>\"obsessed with the process.\"</em></p><br><p>The trick is to remember what it's actually for — and treat the rest as background noise. Log in. Do your ten minutes. Find your next opportunity if you need one. Then close the browser. Go outside. Talk to a human. Wake up at 5 a.m. if you want to — but for your own sake, <strong>not for a LinkedIn post.</strong></p><br><p><em>P.S. Yes, I will still accept your connection request. No, I will not like your photo of a whiteboard with the word 'synergy' on it.</em></p><div class='signature' style='text-align:right; margin-top:2rem; font-family:Orbitron; color:#00f7ff;'>— Farooq Anwar | professional theater critic</div>"
+      },
+
+      podcast: {
+        title: "How I Want to Start a Podcast (But Have No Idea What to Talk About)",
+        meta: "May 29, 2026 · 4 min read · creative paralysis",
+        body: "<p>Let's be honest — I have the microphone picked out. I've watched the YouTube tutorials on audio levels. I even designed cover art in Canva. It looks professional. It has my face on it, slightly desaturated, with a neon accent color. <strong>There's just one problem: I have nothing to say.</strong></p><br><p>Not literally. I have opinions. I have hot takes. I have a running mental list of things that are overrated (daylight saving time) and underrated (the silent generation's ability to fix appliances). But a podcast needs a <strong>topic</strong>, right? Something that fits in a niche. Something searchable. Something that doesn't make people ask, <em>\"Wait, what is this even about?\"</em> before they finish the first episode.</p><br><p>Every advice column says the same thing: <strong>pick what you're passionate about.</strong> But my passions don't stack neatly into a show title. I like urban planning, reality TV elimination formats, the history of vending machines, emergency room documentaries, and why gas stations feel <strong>liminal</strong> at 2 a.m. That's not a podcast — that's a <strong>weird dinner party where I talk too much.</strong></p><br><p>The other option is the solo commentary podcast. Just me. A microphone. Thirty minutes of unfiltered thoughts. But here's the thing about hearing your own voice for thirty minutes: <strong>it's humbling.</strong> I tried recording a test episode about why airport carpet is objectively the best flooring in America. I listened back. I sounded like a guy who just learned what opinions are. <strong>Delete. Delete. Delete.</strong></p><br><p>Then there's the interview format. Smart. Classic. Borrowed credibility from interesting guests. But I'm still in high school (barely — graduation in ten days, not that I'm counting). Who am I interviewing? My barista? My mom's friend who sells real estate? My cat? The cat would win best guest, honestly. Zero small talk. Pure presence.</p><br><p>So maybe I start anyway. Call it <strong><em>\"I Don't Know What This Is Either.\"</em></strong> One episode on why gas stations feel liminal. One episode on the best airport carpet (I will die on this hill). One episode interviewing my mom about infomercials from the 90s. One episode where I just read Amazon reviews of weird products in a dramatic voice. <strong>No niche. No pressure. Just curiosity.</strong></p><br><p>I've realized something while overthinking this. The first ten episodes of every successful podcast are <strong>terrible.</strong> Audio is bad. Banter is awkward. The host says \"um\" seventeen times in the first minute. But they kept going. They figured it out by doing it. You don't need a perfect concept. You need <strong>momentum.</strong></p><br><p>So here's the plan. I'm picking a date. Thirty days from now. Episode one goes live no matter what. Topic? <strong>\"Three Things I Was Wrong About.\"</strong> Everyone loves a redemption arc. And if it's bad? Good. Episode two will be less bad. Episode three might even be fine. <strong>Perfection is the enemy of published.</strong></p><br><p>The only rule: <strong>no ads for meal kits until episode 50.</strong> And no episode about \"my morning routine.\" I don't have a morning routine. I have a coffee and confusion. That's not content — that's just Tuesday.</p><br><p><em>P.S. If you have a podcast topic idea for me that combines vending machines, urban planning, and reality TV eliminations, I'm genuinely listening. Also, my microphone arrives next week. No pressure.</em></p><div class='signature' style='text-align:right; margin-top:2rem; font-family:Orbitron; color:#00f7ff;'>— Farooq Anwar | coming soon to an RSS feed near you</div>"
+      }
+    };
+
+    const modal = document.getElementById('storyModal'), modalTitle = document.getElementById('modalTitle'), modalMeta = document.getElementById('modalMeta'), modalBody = document.getElementById('modalBody'), modalClose = document.getElementById('modalClose');
+    if (modal && modalTitle && modalMeta && modalBody && modalClose) {
+      document.querySelectorAll('.read-story-btn').forEach(btn => { 
+        btn.addEventListener('click', (e) => { 
+          e.preventDefault(); 
+          const id = btn.dataset.id; 
+          if(stories[id]){ 
+            modalTitle.innerText = stories[id].title; 
+            modalMeta.innerText = stories[id].meta; 
+            modalBody.innerHTML = stories[id].body; 
+            modal.classList.add('active'); 
+            document.body.style.overflow = 'hidden'; 
+          } 
+        }); 
+      });
+      modalClose.addEventListener('click', () => { 
+        modal.classList.remove('active'); 
+        document.body.style.overflow = ''; 
+      });
+      modal.addEventListener('click', (e) => { 
+        if(e.target === modal) { 
+          modal.classList.remove('active'); 
+          document.body.style.overflow = ''; 
+        } 
+      });
+      document.addEventListener('keydown', (e) => { 
+        if(e.key === 'Escape' && modal.classList.contains('active')) { 
+          modal.classList.remove('active'); 
+          document.body.style.overflow = ''; 
+        } 
+      });
+    }
+
+    // ── Secret Code Section ──────────────────────────────────────
+    (function(){
+      const codes = {
+        "GITHUB":     "https://github.com/KingFarooq",
+        "LINKEDIN":   "https://www.linkedin.com/in/farooq-anwar-81897b349/",
+        "INSTAGRAM":  "https://www.instagram.com/anwar.farooq7/",
+        "KEYSAFE":    "https://kingfarooq.github.io/key-safe/",
+        "NOTEMASTER": "https://kingfarooq.github.io/NoteMaster/",
+        "EMG2024":    "https://github.com/KingFarooq/EMG-Prosthetic-Arm",
+        "AI2025":     "https://github.com/KingFarooq/TrafficCongestionWithAI",
+        "COUSINS":    "https://kingfarooq.github.io/cousins/",     
+        // Add more: "MYCODE": "https://yoururl.com"
+      };
+
+      const input = document.getElementById('secretInput');
+      const btn   = document.getElementById('secretBtn');
+      const msg   = document.getElementById('secretMsg');
+      const dots  = document.querySelectorAll('#codeDots .code-dot');
+
+      let dotTimer;
+      function animateDots(color) {
+        clearTimeout(dotTimer);
+        dots.forEach(d => d.style.background = '');
+        let i = 0;
+        function step() {
+          dots.forEach(d => d.style.background = 'rgba(255,255,255,0.15)');
+          if (i < dots.length) { dots[i].style.background = color; i++; dotTimer = setTimeout(step, 80); }
+          else { dots.forEach(d => d.style.background = color); dotTimer = setTimeout(() => dots.forEach(d => d.style.background = ''), 700); }
+        }
+        step();
+      }
+
+      function attempt() {
+        const val = input.value.trim().toUpperCase();
+        if (!val) return;
+        input.className = '';
+        if (codes[val]) {
+          input.className = 'ok';
+          msg.style.color = '#1d9e75';
+          msg.textContent = '✓ Code accepted — redirecting...';
+          animateDots('#1d9e75');
+          setTimeout(() => { window.open(codes[val], '_blank'); input.value = ''; input.className = ''; msg.textContent = ''; }, 1200);
+        } else {
+          input.className = 'error';
+          msg.style.color = '#e24b4a';
+          msg.textContent = '✗ Invalid code. Try again.';
+          animateDots('#e24b4a');
+          setTimeout(() => input.className = '', 600);
+        }
+      }
+
+      btn.addEventListener('click', attempt);
+      btn.addEventListener('mouseover', () => btn.style.boxShadow = 'var(--neon-glow)');
+      btn.addEventListener('mouseout',  () => btn.style.boxShadow = 'none');
+      input.addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
+      input.addEventListener('input', () => { msg.textContent = ''; input.className = ''; });
+    })();
   </script>
 </body>
 </html>
