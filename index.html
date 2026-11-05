@@ -11,7 +11,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23f6ee3a%22/><text x=%2250%22 y=%2265%22 text-anchor=%22middle%22 font-size=%2245%22> F </text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Newsreader:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&family=UnifrakturCook:wght@700&family=Playfair+Display:ital,wght@1,400;1,500&family=Orbitron:wght@700;900" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Newsreader:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&family=UnifrakturCook:wght@700&family=Playfair+Display:ital,wght@1,400;1,500&family=Orbitron:wght@700;900&family=Caveat:wght@600" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
     /* ===== THEME: CYBERPUNK BROADSHEET — change colors/fonts here ===== */
@@ -494,6 +494,27 @@ footer{background:radial-gradient(circle at 15% 15%,rgba(255,46,136,.14),transpa
 .shut:after{content:"SNAP";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font:900 22px var(--mono);letter-spacing:.4em;background:#fff;color:#000;opacity:0;animation:flash .8s}
 @keyframes iris{0%{--r:150%}40%{--r:0%}54%{--r:0%}100%{--r:150%}}@keyframes flash{0%,42%{opacity:0}47%{opacity:.95}60%,100%{opacity:0}}
 .crt-screen .poster:hover:after{content:"";position:absolute;inset:14px;pointer-events:none;background:linear-gradient(#fff,#fff) 0 0/22px 2px,linear-gradient(#fff,#fff) 0 0/2px 22px,linear-gradient(#fff,#fff) 100% 0/22px 2px,linear-gradient(#fff,#fff) 100% 0/2px 22px,linear-gradient(#fff,#fff) 0 100%/22px 2px,linear-gradient(#fff,#fff) 0 100%/2px 22px,linear-gradient(#fff,#fff) 100% 100%/22px 2px,linear-gradient(#fff,#fff) 100% 100%/2px 22px;background-repeat:no-repeat;opacity:.8}
+
+/* ===== v11: less "AI", more human ===== */
+body:before,body:after{display:none}
+.cover:before{opacity:.12;filter:none}
+.cover:after{background:linear-gradient(transparent 60%,rgba(13,9,20,.7))}
+.cover .masthead .paper,.cover h1,.poster b{text-shadow:none}
+.cover h1{font-family:var(--head);font-weight:900;letter-spacing:.01em}
+.cover .hero-readout,.cover-face:after{display:none}
+.cover-face img{filter:drop-shadow(0 12px 28px rgba(0,0,0,.55)) drop-shadow(0 0 2px rgba(255,46,136,.6))}
+.cover-face:hover img{filter:drop-shadow(0 12px 28px rgba(0,0,0,.55)) drop-shadow(0 0 3px rgba(25,240,255,.7))}
+.hand{position:absolute;z-index:6;font:600 30px/1 'Caveat',cursive;color:var(--yellow);transform:rotate(-7deg);white-space:nowrap;pointer-events:none}
+.cover-face .hand{left:-90px;top:10%}.cover-face .hand:after{content:"\2198";margin-left:6px;font-size:26px}
+.about-note{left:30%;bottom:-2%;color:var(--pink);transform:rotate(3deg);font-size:26px}
+.photo-orbit .photo:before{content:"";position:absolute;top:-4px;left:50%;width:74px;height:22px;z-index:3;transform:translateX(-50%) rotate(-3deg);background:rgba(255,212,0,.55)}
+.transition-band .mono{text-transform:none;letter-spacing:.04em;font-size:13px}
+.chip{clip-path:none;background:none;padding:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;--rot:0deg;transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) rotate(var(--rot))}
+.chip:nth-child(3n+1){--rot:-.5deg}.chip:nth-child(3n+2){--rot:.4deg}.chip:hover{border-color:var(--pink)}.chip-in{clip-path:none}
+.modal-box{box-shadow:0 24px 70px rgba(0,0,0,.55)}
+.poster:before{display:none}
+#big-projects .container:before,#big-projects .container:after{display:none!important}
+@media(max-width:900px){.cover-face .hand{display:none}}
   </style>
 </head>
 <body>
@@ -530,14 +551,14 @@ footer{background:radial-gradient(circle at 15% 15%,rgba(255,46,136,.14),transpa
   </nav>
 
   
-  <div id="edgeSky" aria-hidden="true"><svg id="moon" viewBox="-50 -50 100 100"><defs><filter id="mg"><feGaussianBlur stdDeviation="6"/></filter></defs><circle r="46" fill="#ff2e88" opacity=".2" filter="url(#mg)"/><circle r="40" fill="#1b1330" stroke="rgba(255,255,255,.18)"/><path id="moonLit" fill="#f4f1ff"/></svg><svg id="rocket" viewBox="0 0 30 90"><defs><linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd400"/><stop offset=".5" stop-color="#ff2e88"/><stop offset="1" stop-color="#ff2e88" stop-opacity="0"/></linearGradient></defs><path class="fl" d="M10 41h10l-5 48z" fill="url(#fg)"/><path d="M9 32L2 46l7-3zM21 32l7 14-7-3z" fill="#ff2e88"/><path d="M15 2C22 12 23 26 21 41H9C7 26 8 12 15 2Z" fill="#f4f1ff"/><circle cx="15" cy="20" r="4" fill="#19f0ff"/></svg><span id="skyNote" class="mono">LAUNCH WINDOW OPEN</span></div>
-  <div class="modal" id="hints" aria-hidden="true"><div class="modal-box"><button class="modal-x" data-close aria-label="Close">✕</button><div class="mono k">// secret commands</div><h3>Hints</h3>
+  <div id="edgeSky" aria-hidden="true"><svg id="moon" viewBox="-50 -50 100 100"><defs><filter id="mg"><feGaussianBlur stdDeviation="6"/></filter></defs><circle r="46" fill="#ff2e88" opacity=".2" filter="url(#mg)"/><circle r="40" fill="#1b1330" stroke="rgba(255,255,255,.18)"/><path id="moonLit" fill="#f4f1ff"/></svg><svg id="rocket" viewBox="0 0 30 90"><defs><linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd400"/><stop offset=".5" stop-color="#ff2e88"/><stop offset="1" stop-color="#ff2e88" stop-opacity="0"/></linearGradient></defs><path class="fl" d="M10 41h10l-5 48z" fill="url(#fg)"/><path d="M9 32L2 46l7-3zM21 32l7 14-7-3z" fill="#ff2e88"/><path d="M15 2C22 12 23 26 21 41H9C7 26 8 12 15 2Z" fill="#f4f1ff"/><circle cx="15" cy="20" r="4" fill="#19f0ff"/></svg><span id="skyNote" class="mono">bon voyage</span></div>
+  <div class="modal" id="hints" aria-hidden="true"><div class="modal-box"><button class="modal-x" data-close aria-label="Close">✕</button><div class="mono k">psst</div><h3>Hints</h3>
     <ul class="hintlist">
       <li><code>goal</code> type it anywhere</li><li><code>roll</code> do a barrel roll</li><li><code>matrix</code> enter the grid</li><li><code>sudo</code> try it</li>
       <li><code>↑↑↓↓←→←→ B A</code> Konami code</li><li><code>?</code> opens this menu</li><li><code>click</code> the cover title for a new edition</li><li><code>click</code> my face on the cover</li><li><code>double-click</code> my name</li><li><code>right-click</code> the cover title</li>
       <li><code>click</code> "Don't click me!"</li><li><code>click</code> the F/ logo 3 times</li><li><code>click</code> the "online" status</li><li><code>click</code> the stats, ticker, timeline years</li><li><code>click</code> a project tag</li><li><code>click</code> back-to-top 5 times</li><li><code>click</code> the footer headline</li><li><code>idle</code> for a minute, scroll to the very bottom</li><li><code>scroll</code> slowly: the moon rises, full moon = rocket</li><li><code>click</code> the moon</li><li><code>click</code> my name in the footer (5x for a surprise)</li><li><code>hello</code></li><li><code>neon</code> toggles a color shift</li><li><code>rocket</code> <code>moon</code></li>
     </ul>
-    <button class="decrypt mono" id="decrypt" type="button">▸ decrypt restricted files</button>
+    <button class="decrypt mono" id="decrypt" type="button">▸ show the secret ones</button>
     <ul class="hintlist" id="restricted" hidden><li><code>lucy</code> a trip to the moon</li><li><code>david</code> keep your distance</li><li><code>choom</code> greetings, Night City style</li><li><code>gonk</code> a friendly warning</li><li><code>flatline</code> vitals check</li><li><code>zero</code> lights out</li><li><code>footer name x5</code> something snaps</li></ul></div></div>
   <div class="modal" id="dossier" aria-hidden="true"><div class="modal-box dos"><button class="modal-x" data-close aria-label="Close">✕</button><div class="dos-img"><img id="dImg" alt=""></div><div><div class="mono k" id="dId"></div><h3 id="dTitle"></h3><p id="dDesc"></p><div class="dtags" id="dTags"></div><div class="portfolio-links" id="dLinks"></div><div class="dos-nav"><button id="dPrev">◀ prev</button><button id="dNext">next ▶</button></div></div></div></div>
   <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
@@ -548,10 +569,10 @@ footer{background:radial-gradient(circle at 15% 15%,rgba(255,46,136,.14),transpa
         <div class="paper" id="coverTitle">The Anwar Signal</div>
         <div class="cover-sub"><div class="tagline">All the code that's fit to compile</div><div class="r"><span>Vol. 1 · Issue <span id="issueNo">01</span></span><br><span id="paperDate">Today</span></div></div>
       </div>
-      <div class="cover-face" id="coverFace" title="click me"><img id="coverImg" src="farooq-cutout.png" alt="Farooq Anwar" onerror="this.onerror=null;this.src='farooq.jpg'"><span class="tag t1">ID // F. Anwar</span><span class="tag t2">KSU '30</span><span class="barcode"></span></div>
+      <div class="cover-face" id="coverFace" title="click me"><img id="coverImg" src="farooq-cutout.png" alt="Farooq Anwar" onerror="this.onerror=null;this.src='farooq.jpg'"><span class="hand">hi, I'm Farooq!</span></div>
       <div class="cover-head">
         <div class="kicker mono">Kennesaw State University 30'</div>
-        <h1 class="glitch-in">Farooq<span>Anwar</span></h1>
+        <h1 class="glitch-in">Farooq<br><span>Anwar</span></h1>
         <p class="hero-intro"><b>Computer Science</b> major and <b>Fintech</b> minor.</p>
         <div class="hero-actions"><a class="btn primary" href="#projects">view my collection <b>↘</b></a><a class="btn" href="#about">who am i?</a></div>
       </div>
@@ -561,7 +582,7 @@ footer{background:radial-gradient(circle at 15% 15%,rgba(255,46,136,.14),transpa
       </div>
     </section>
 
-    <div class="transition-band"><span class="mono">+++ WELCOME: EXPLORE THE WORK +++ FEATURED: EMG PROSTHETIC HAND AND AI TRAFFIC OPTIMIZATION +++ INTERACTIVE: PRESS ? TO DISCOVER HIDDEN FEATURES +++ OPEN TO INTERNSHIPS AND COLLABORATIONS &nbsp;+++ WELCOME: EXPLORE THE WORK +++ FEATURED: EMG PROSTHETIC HAND AND AI TRAFFIC OPTIMIZATION +++ INTERACTIVE: PRESS ? TO DISCOVER HIDDEN FEATURES +++ OPEN TO INTERNSHIPS AND COLLABORATIONS &nbsp;</span></div>
+    <div class="transition-band"><span class="mono">now showing: robotics, AI, and a few websites &nbsp;·&nbsp; four years of school projects &nbsp;·&nbsp; looking for internships &nbsp;·&nbsp; say hi at the bottom of the page &nbsp;·&nbsp; now showing: robotics, AI, and a few websites &nbsp;·&nbsp; four years of school projects &nbsp;·&nbsp; looking for internships &nbsp;·&nbsp; say hi at the bottom of the page &nbsp;·&nbsp; </span></div>
 
     <section id="projects">
       <div class="container">
@@ -599,7 +620,7 @@ footer{background:radial-gradient(circle at 15% 15%,rgba(255,46,136,.14),transpa
 
     <section id="about" class="about" data-section="about">
       <div class="wrap about-layout">
-         <div class="photo-orbit reveal" data-tilt><div class="photo a"><img src="farooq.jpg" alt="Portrait" data-photo-index="0"><span class="cap">Fig. 1: Staff photo</span></div><div class="photo b"><img src="farooq2.jpg" alt="Farooq portrait" data-photo-index="1"><span class="cap">Fig. 2: File photo</span></div><div class="photo c"><img src="farooq3.jpg" alt="Farooq portrait" data-photo-index="2"><span class="cap">Fig. 3: Wire photo</span></div><span class="stamp mono" id="stamp">Don't click me!</span></div>
+         <div class="photo-orbit reveal" data-tilt><div class="photo a"><img src="farooq.jpg" alt="Portrait" data-photo-index="0"><span class="cap">Fig. 1: Staff photo</span></div><div class="photo b"><img src="farooq2.jpg" alt="Farooq portrait" data-photo-index="1"><span class="cap">Fig. 2: File photo</span></div><div class="photo c"><img src="farooq3.jpg" alt="Farooq portrait" data-photo-index="2"><span class="cap">Fig. 3: Wire photo</span></div><span class="hand about-note">that's me, mostly</span><span class="stamp mono" id="stamp">Don't click me!</span></div>
         <div class="about-copy reveal delay-1"><div class="section-number mono">Section C: Profile</div><h2>About<br><em>Me .</em></h2><p class="lede">A computer science freshman building things that see, move and count.</p><p>I'm a Computer Science freshman at Kennesaw State University with interests spanning AI, computer vision, and fintech. My experience includes Python, HTML/CSS/JavaScript, CAD and SolidWorks, Arduino-based embedded systems, and building full-stack web apps from scratch. Outside of tech, I play soccer, box, and volunteer in my community. I'm driven by curiosity, hands-on learning, and building technology that makes a real impact. I am always open to new opportunities.</p><div class="stat-row"><div class="stat"><strong>5'8</strong><span>height</span></div><div class="stat"><strong>02</strong><span>big showcases</span></div><div class="stat"><strong>∞</strong><span>ideas</span></div></div></div>
       </div>
     </section>
@@ -790,7 +811,7 @@ footer{background:radial-gradient(circle at 15% 15%,rgba(255,46,136,.14),transpa
 
     /* ---- easter eggs ---- */
     const toastEl = $('.toast'); let toastT;
-    function toast(m){ toastEl.innerHTML = `<div class="holo-av"><img src="farooq-cutout.png" alt="" onerror="this.style.display='none'"></div><div class="holo-head"><span><i class="holo-dot"></i> incoming transmission</span><span>F/ANWAR</span></div><div class="holo-body"></div>`;
+    function toast(m){ toastEl.innerHTML = `<div class="holo-av"><img src="farooq-cutout.png" alt="" onerror="this.style.display='none'"></div><div class="holo-head"><span><i class="holo-dot"></i> message from Farooq</span><span>live</span></div><div class="holo-body"></div>`;
       const b = toastEl.querySelector('.holo-body'); let n = 0; clearInterval(toast._i); toast._i = setInterval(() => { b.textContent = m.slice(0, ++n); if (n >= m.length) clearInterval(toast._i); }, 16);
       toastEl.classList.remove('show'); void toastEl.offsetWidth; toastEl.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove('show'), 2800 + m.length * 30); }
     function matrix(){
@@ -808,8 +829,8 @@ footer{background:radial-gradient(circle at 15% 15%,rgba(255,46,136,.14),transpa
     const statusEl = $('.status'); statusEl.style.cursor = 'pointer';
     statusEl.addEventListener('click', () => { const off = statusEl.classList.toggle('away'); statusEl.querySelector('span').textContent = off ? 'away' : 'online'; toast(off ? 'Status: away.' : 'Status: available.'); });
     $$('.stat').forEach(st => { const k = st.querySelector('strong').textContent; st.style.cursor = 'pointer';
-      st.addEventListener('click', () => toast(k.includes("'") ? 'Measured, not estimated.' : k === '∞' ? 'There is always something new in the works.' : 'Two showcases, each worth a closer look.')); });
-    $('.transition-band').addEventListener('click', () => toast('Highlights update with every release.'));
+      st.addEventListener('click', () => toast(k.includes("'") ? "5'8, on a good day." : k === '∞' ? 'Always working on something.' : 'Two showcases so far. Both took a lot of work.')); });
+    $('.transition-band').addEventListener('click', () => toast('I add to this every time I finish something new.'));
     const KONAMI = 'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a'; let kb = [], typed = '';
     document.addEventListener('keydown', e => {
       kb.push(e.key.length === 1 ? e.key.toLowerCase() : e.key); kb = kb.slice(-10);
@@ -834,13 +855,13 @@ footer{background:radial-gradient(circle at 15% 15%,rgba(255,46,136,.14),transpa
       if (typed.endsWith('goal')) { rain('\u26BD'); toast('Goal! Great shot.'); }
       if (typed.endsWith('roll')) { mainEl.style.transformOrigin = '50% ' + (scrollY + innerHeight / 2) + 'px'; mainEl.classList.add('roll'); setTimeout(() => mainEl.classList.remove('roll'), 1300); toast('Barrel roll engaged.'); }
     });
-    $('h1').addEventListener('dblclick', () => { const h = $('h1'); h.classList.add('burst'); setTimeout(() => h.classList.remove('burst'), 500); toast('Signal interference detected. Stabilizing.'); });
+    $('h1').addEventListener('dblclick', () => { const h = $('h1'); h.classList.add('burst'); setTimeout(() => h.classList.remove('burst'), 500); toast('Whoops, that was supposed to happen.'); });
     $$('.timeline-date').forEach(d => { d.style.cursor = 'pointer'; d.addEventListener('click', () => toast(d.textContent + ': a year of progress.')); });
     $$('.tech-tag').forEach(t => { t.style.cursor = 'pointer'; t.addEventListener('click', () => toast(t.textContent.trim() === 'Python' ? 'import antigravity' : '#' + t.textContent.trim().toLowerCase().replace(/\s+/g, '') +  ' is part of the toolkit.')); });
     $('.footer-content h2').addEventListener('click', () => toast('Have an idea or an opportunity? I would like to hear it.'));
     $('.masthead .paper').addEventListener('contextmenu', () => toast('Designed and built by Farooq Anwar.'));
     $$('.hero-readout .readout-row').forEach(r => r.addEventListener('click', () => toast('Based in Atlanta, Georgia. Available remotely.')));
-    let btt = 0; $('.back-to-top').addEventListener('click', () => { if (++btt === 5) { toast('Launch sequence initiated.'); rain('\uD83D\uDE80'); btt = 0; } });
+    let btt = 0; $('.back-to-top').addEventListener('click', () => { if (++btt === 5) { toast('Off it goes.'); rain('\uD83D\uDE80'); btt = 0; } });
     let pc = 0; $$('.photo img').forEach(i => i.addEventListener('click', () => { if (++pc === 8) toast('That covers every angle. Thanks for looking.'); }));
     let idleT; const idle = () => { clearTimeout(idleT); idleT = setTimeout(() => toast('Take your time. Everything here will be waiting.'), 60000); };
     ['mousemove','keydown','scroll','touchstart'].forEach(ev => addEventListener(ev, idle, { passive: true })); idle();
@@ -917,12 +938,12 @@ footer{background:radial-gradient(circle at 15% 15%,rgba(255,46,136,.14),transpa
      ['Key Safe','Key Safe.png','A website application based password manager that uses local storage.',['HTML','CSS','JS'],[['Live Demo','https://kingfarooq.github.io/key-safe/','fas fa-external-link-alt'],['GitHub','https://github.com/KingFarooq/key-safe','fab fa-github']]],
      ['NoteMaster','notemaster.png','A website application based note organizer that uses localStorage.',['HTML','CSS','JS'],[['Live Demo','https://kingfarooq.github.io/NoteMaster/','fas fa-external-link-alt'],['GitHub','https://github.com/KingFarooq/NoteMaster','fab fa-github']]]];
     const FILTERS=['All','Python','HTML','CAD','Woodworking'];let pf='All',pi=0;
-    const pid=i=>'PRJ-'+String(i+1).padStart(2,'0');
+    const pid=i=>'#'+String(i+1).padStart(2,'0');
     $('#pdbGrid').innerHTML=PROJECTS.map((p,i)=>`<article class="chip" tabindex="0" data-i="${i}"><div class="chip-in"><div class="chip-img"><img src="${p[1]}" alt="${p[0]}" loading="lazy"><b>${pid(i)}</b></div><div class="chip-body"><h4>${p[0]}</h4><p>${p[2]}</p>${p[3].map(t=>`<span class="pdb-tag">#${t}</span>`).join('')}<span class="chip-open">open file ↗</span></div></div></article>`).join('');
     $('#pdbF').innerHTML=FILTERS.map(f=>`<button class="pdb-f${f==='All'?' on':''}">${f}</button>`).join(' ');
     function applyF(){let n=0;$$('.chip').forEach((c,i)=>{const ok=pf==='All'||PROJECTS[i][3].includes(pf);c.classList.toggle('hide',!ok);if(ok)n++});$('#pdbCount').textContent='showing '+n+'/'+PROJECTS.length}
     $$('.pdb-f').forEach(b=>b.addEventListener('click',()=>{pf=b.textContent;$$('.pdb-f').forEach(x=>x.classList.toggle('on',x===b));applyF()}));applyF();
-    function showP(i){pi=(i+PROJECTS.length)%PROJECTS.length;const p=PROJECTS[pi];$('#dImg').src=p[1];$('#dId').textContent=pid(pi)+' // project file';$('#dTitle').textContent=p[0];$('#dDesc').textContent=p[2];
+    function showP(i){pi=(i+PROJECTS.length)%PROJECTS.length;const p=PROJECTS[pi];$('#dImg').src=p[1];$('#dId').textContent=pid(pi)+'';$('#dTitle').textContent=p[0];$('#dDesc').textContent=p[2];
       $('#dTags').innerHTML=p[3].map(t=>`<span class="pdb-tag">#${t}</span>`).join('');$('#dLinks').innerHTML=p[4].map(l=>`<a class="project-link" href="${l[1]}" target="_blank" rel="noopener"><i class="${l[2]}"></i> ${l[0]}</a>`).join('')}
     $('#dPrev').onclick=()=>showP(pi-1);$('#dNext').onclick=()=>showP(pi+1);
     $$('.chip').forEach(c=>{const go=()=>{showP(+c.dataset.i);openM('dossier')};
@@ -950,7 +971,7 @@ footer{background:radial-gradient(circle at 15% 15%,rgba(255,46,136,.14),transpa
     const HU=[330,185,270,55,200,310,160,20,285];
     function tune(i){const v=vis();cur=(i+v.length)%v.length;const c=v[cur],sc=$('#crtScreen'),h=HU[CH.indexOf(c)%HU.length],n=String(cur+1).padStart(2,'0');
       sc.classList.remove('tune');void sc.offsetWidth;sc.classList.add('tune');setTimeout(()=>sc.classList.remove('tune'),600);
-      if(c[0]==='CodePen'){sc.innerHTML=`<div class="poster" style="--h:${h}"><span class="pn">${n}</span><i class="${ico(c[1])}"></i><div><small>${c[0]} // live demo</small><b>${c[1]}</b><button class="play">▶ tune in</button></div></div>`;
+      if(c[0]==='CodePen'){sc.innerHTML=`<div class="poster" style="--h:${h}"><span class="pn">${n}</span><i class="${ico(c[1])}"></i><div><small>${c[0]} · live demo</small><b>${c[1]}</b><button class="play">▶ tune in</button></div></div>`;
         $('.play',sc).onclick=()=>{sc.classList.remove('tune');sc.innerHTML=`<iframe src="https://codepen.io/KingFarooq/embed/${c[3]}?height=400&theme-id=${c[5]}&default-tab=result" title="${c[1]}"></iframe>`}}
       else sc.innerHTML=`<img src="${c[3]}" alt="${c[1]}">`;
       $('#crtLabel').textContent='CH '+n+' / '+c[0];
@@ -971,7 +992,7 @@ footer{background:radial-gradient(circle at 15% 15%,rgba(255,46,136,.14),transpa
       if(Math.abs(tp-dp)>.0004||lastP<0){lastP=dp;const x=-100+dp*(W+200),y=H*(.84-.58*Math.sin(Math.PI*dp));mPos=[x,y];moon.style.transform=`translate(${x-85}px,${y-85}px)`;lit.setAttribute('d',phase(.07+dp*.86))}
       if(dp>.5&&tp>.5&&armed){armed=false;launch()}if(dp<.42)armed=true;requestAnimationFrame(skyTick)}
     skyTick();
-    moon.addEventListener('click',()=>{launch();toast('Look up: the sky changes as you scroll.')});
+    moon.addEventListener('click',()=>{launch();toast('Try scrolling slowly. The moon does stuff.')});
     /* footer name */
     const ALI=['Farooq Anwar','KingFarooq','F. Anwar','Builder','Researcher','Engineer','Problem Solver'];let ai=0,fc=0;
     function scr(el,to){let n=0;const ch='!<>-_[]{}=+*^?#01';clearInterval(el._t);el._t=setInterval(()=>{el.textContent=to.split('').map((c,i)=>i<n||c===' '?c:ch[Math.random()*ch.length|0]).join('');n+=.5;if(n>to.length){el.textContent=to;clearInterval(el._t)}},35)}
@@ -999,7 +1020,7 @@ footer{background:radial-gradient(circle at 15% 15%,rgba(255,46,136,.14),transpa
     function flatline(){const d=overlay('<div style="text-align:center"><svg width="320" height="60" viewBox="0 0 320 60"><polyline fill="none" stroke="#ff2e88" stroke-width="2" points="0,30 60,30 70,30 78,8 88,52 96,30 150,30 160,30 168,12 176,46 184,30 230,30 320,30" style="stroke-dasharray:420;stroke-dashoffset:420;animation:fl2 1.4s linear forwards"/></svg><div style="margin-top:10px;font:12px var(--mono);letter-spacing:.4em;color:#ff2e88">VITALS: FLATLINE</div></div>','background:rgba(5,3,10,.88)',2600);d.animate([{opacity:0},{opacity:1,offset:.1},{opacity:1,offset:.85},{opacity:0}],2600);toast('Vitals lost. Rebooting...');
       if(!$('#fl2css')){const st=document.createElement('style');st.id='fl2css';st.textContent='@keyframes fl2{to{stroke-dashoffset:0}}';document.head.append(st)}}
     function zero(){const d=overlay('<div style="font:900 40vmin var(--head);color:#19f0ff;text-shadow:0 0 40px #19f0ff">0</div>','background:#000',1700);d.animate([{opacity:0},{opacity:1,offset:.2},{opacity:1,offset:.7},{opacity:0}],1700);toast('Zero day. All systems restored.')}
-    $('#decrypt').addEventListener('click',()=>{const r=$('#restricted'),b=$('#decrypt');r.hidden=!r.hidden;b.textContent=r.hidden?'▸ decrypt restricted files':'▾ access granted';if(!r.hidden)r.animate([{opacity:0},{opacity:1}],400)});
+    $('#decrypt').addEventListener('click',()=>{const r=$('#restricted'),b=$('#decrypt');r.hidden=!r.hidden;b.textContent=r.hidden?'▸ show the secret ones':'▾ you found them';if(!r.hidden)r.animate([{opacity:0},{opacity:1}],400)});
     const crtS=$('#crtScreen');let shT=0;crtS.addEventListener('mouseenter',()=>{if(shT||!crtS.querySelector('.poster'))return;const d=document.createElement('div');d.className='shut';crtS.append(d);shT=setTimeout(()=>{d.remove();shT=0},850)});
 
   </script>
